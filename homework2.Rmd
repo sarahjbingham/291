@@ -1,0 +1,160 @@
+---
+title: "homework2"
+author: "Lika Mikhelashvili"
+date: "9/20/2020"
+output: html_document
+---
+```{r}
+library(moderndive)
+library(Stat2Data)
+library(infer)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+data("Cereal")
+data("Sparrows")
+data("USstamps")
+```
+
+# Problem 1 - Breakfast Cereal
+```{r}
+ggplot(data = Cereal, aes(x = Sugar, y = Calories))+
+  geom_point()+
+  geom_smooth(method=lm, formula = y ~ NULL, se = FALSE, color = "red")+
+  geom_smooth(method= lm, formula = y~x, se = FALSE)
+```
+
+**a)**
+
+*Null Hypothesis:*
+
+  - There is no linear relationship between number of calories and and number of grams of sugar per serving
+  
+  - $H_0: \beta_0 = 0$
+
+*Alternative Hypothesis:*
+
+  - There is a linear relationship between number of calories and and number of grams of sugar per serving
+  
+  - $H_0: \beta_A ≠ 0$
+
+The regression table is the following:
+
+```{r}
+cereal_model <- lm(formula = Calories ~ Sugar, data = Cereal)
+cereal_model_table <- get_regression_table(cereal_model)
+cereal_model_table
+```
+First, we need to get the estimated slope of the model of the data:
+
+$Slope = 2.481$
+
+The t-statistic is the following:
+
+$t = \hat{\beta_1}/SE_\hat{\beta_1}$
+
+```{r}
+slope <- cereal_model_table$estimate[2]
+standard_err_of_slope <- cereal_model_table$std_error[2]
+t <- slope/standard_err_of_slope
+t
+```
+
+Get P-value:
+
+```{r}
+pt(3.509194, df = 36-2, lower.tail=FALSE)*2
+```
+
+*Conclusion:*
+t-statistic= 3.507; p-value = 0.001; For a 95% confidence level, we can reject the null hypothesis and assume that there is some relationship between the variables Calories and Sugar in the model. We make this conclusion since the p-value for the t-statistic is less than .05 - the alpha value for 95% confidence. 
+
+
+**b)**
+Interpretation of slope variable: as the amount of Sugar increases in the cereal by 1 gram, the Calories increase by 2.481 per serving. 
+
+**c)**
+The confidence interval for slope is [1.043, 3.918] at 95% confidence level. This means that we are 95% confident the true slope falls within this range. Also, as the confidence interval does not contain 0, we can confirm our previous claim that the Null Hypothesis can be rejected and the alternative hypothesis can be accepted. 
+
+
+
+
+# Problem 2 - Sparrows
+
+**a)**
+
+
+```{r}
+ggplot(data = Sparrows, aes(x = WingLength, y = Weight))+
+  geom_point()+
+  geom_smooth(method = lm, formula = y ~NULL, se = FALSE, color = "red")+
+  geom_smooth(method = lm, formula = y~x, se= FALSE)
+```
+
+The red line in the scatter plot above is the regression line when there is no relationship between wing length and weight. The blue line is is the actual regression line for the sample. The blue line is significantly different from the red line and has an evident positive slope. 
+
+To statistically prove the assumption above we can analyze the regression table below:
+
+```{r}
+sparrows_model <- lm(formula = Weight ~ WingLength, data = Sparrows)
+```
+
+```{r}
+sparrows_table <- get_regression_table(sparrows_model)
+sparrows_table
+```
+
+From the regression table above, we can see the slope of the line is 1.313. The p-value for the slope is 0 - less than .05 for 95% confidence. So, the slope 1.313 is statistically significant. Thus, these details prove that the slope of the regression line is different from 0.
+
+**b)**
+The confidence interval [1.120, 1.507] does not contain 0, so the slope estimate is significant at 95% confidence level. Thus, the claim we made in (a) that the the slope of the regression line is significantly different from 0 is proved by the confidence interval as well. 
+
+
+
+
+# Problem 3 - U.S. Stamp Prices
+
+Since the regular increases in postal rates only started in 1958, we'll remove the first 4 observations in the data set:
+```{r}
+USstamps <- USstamps[-(1:4), ]
+```
+
+```{r}
+USstamps_model <- lm(formula = Price ~ Year, data = USstamps)
+```
+
+```{r}
+USstamps_model_table <- get_regression_table(USstamps_model)
+USstamps_model_table
+```
+
+```{r}
+USstamps_model_summary <- get_regression_summaries(USstamps_model)
+USstamps_model_summary
+```
+
+**a)**
+R^2 value shows what percentage of the variation in Price is explained by our model, specifically the variable Year.
+In our model $R^2 = 0.985$.
+This means that 98.5% of variation in postal rates (Price) is explained by Year variable. 
+
+**b)**
+```{r}
+anova(USstamps_model)
+```
+
+The hypotheses for our test are: 
+
+*Null Hypothesis:*
+
+  - There is no relationship between the variables Year and Price
+  
+  - $H_0: \beta_1 = 0$
+
+*Alternative Hypothesis:*
+
+  - There is a relationship between the variables Year and Price
+  
+  - $H_A: \beta_1 ≠ 0$
+
+If $H_a$ is true, the F-statistic should be more than 1. F-statistic =$1273.093$ in our case, so we can reject $H_0$ and accept $H_a$. Also, the p-value for the F-statistic is 0 which also means we can reject $H_0$. Thus, there is a linear relationship between Year and Price of stamps. 
