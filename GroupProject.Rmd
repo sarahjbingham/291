@@ -61,7 +61,7 @@ As stated above in “Population”, we will restrict this analysis to those who
 
 The primary hypotheses will use a variable indicating sexual orientation . We will create this variable from two different sources.
 
-Individuals self-report their sexual orientation (SEXORIEN in NHIS) in response to a question: “Which of the following best represents how you think of yourself?”
+Individuals self-report their sexual orientation ([SEXORIEN](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “Which of the following best represents how you think of yourself?”
 
 Answer options: 1=Gay; 2=Straight, that is, not gay; 3=Bisexual; 4=Something else; 5=I don’t know the answer; 7=Refused.
 
@@ -69,19 +69,19 @@ We will combine responses and create a variable that indicates being either gay/
 
 The test of our hypothesis will be
 
-H0:β1=0
+$H_0: \beta_1=0$
 
-HA:β1≠0
+$H_1: \beta_1≠0$
 
 from the regression model:
-logit(GoodHealth)=β0+β1SexualMinority+β′X
+$logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority  +\beta'X$
 
-where β′X is a vector of covariates included to control for potential confounding. They are described below.
+where $\beta'X$ is a vector of covariates included to control for potential confounding. They are described below.
 
 ### Secondary hypotheses  
-1. The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.
+*1. The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.*
 
-We will create an indicator variable of those with breast, ovarian, cervical, uterine, testicular or prostate cancer vs. other kinds of cancer. NHIS asks questions about cancer type at every year between 2013-2016, detailed here.
+We will create an indicator variable of those with breast, ovarian, cervical, uterine, testicular or prostate cancer vs. other kinds of cancer. NHIS asks questions about cancer type at every year between 2013-2016, detailed [here](https://nhis.ipums.org/nhis-action/variables/group?id=conditions_cancer).
 
 We will test this hypothesis with an interaction between sexual orientation and sex-specific cancer type.
 
