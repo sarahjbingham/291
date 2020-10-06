@@ -75,7 +75,7 @@ $H_0: \beta_1=0$
 $H_1: \beta_1≠0$
 
 from the regression model:  
-$logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority  +\beta'X$
+$$logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority  +\beta'X$$
 
 where $\beta'X$ is a vector of covariates included to control for potential confounding. They are described below.
 
@@ -117,4 +117,5 @@ We suspect that demographic and socio-economic factors will be important to cont
 4. Race RACENEW
 6. Hispanic Ethnicity HISPYN
 6. Education EDUC  
+
 We might want to control for other health characteristics like smoking, physical activity, diet, and mental health. We will explore that in our analysis after we review the literature to find what is most commonly done.
