@@ -104,7 +104,10 @@ $H_0:\beta_3=0$
 
 $H_1:\beta_3≠0$
 
-$$logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′$$X
+$$\begin{split}
+logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
+\beta_3 (SexualMinority \times NonWhiteRace) +\beta'X
+\end{split}$$
 
 This analysis will be restricted to only sexual minorities.
 
