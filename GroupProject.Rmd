@@ -117,11 +117,11 @@ This analysis will be restricted to only sexual minorities.
 #### Potential Confounders  
 We suspect that demographic and socio-economic factors will be important to control for, as they would be associated with both sexual orientation and with health.
 
-1. Age AGE
-2. Sex SEX
-3. Marital Status MARSTCOHAB
-4. Race RACENEW
-6. Hispanic Ethnicity HISPYN
-6. Education EDUC  
+1. Age [AGE](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
+2. Sex [SEX](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
+3. Marital Status [MARSTCOHAB](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
+4. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
+6. Hispanic Ethnicity [HISPYN](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
+6. Education [EDUC](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
 
 We might want to control for other health characteristics like smoking, physical activity, diet, and mental health. We will explore that in our analysis after we review the literature to find what is most commonly done.
