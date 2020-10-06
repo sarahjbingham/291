@@ -70,9 +70,9 @@ We will combine responses and create a variable that indicates being either gay/
 
 The test of our hypothesis will be
 
-$H_0: \beta_1=0$
+$H_0: \beta_1 = 0$
 
-$H_1: \beta_1≠0$
+$H_1: \beta_1 ≠ 0$
 
 from the regression model:  
 $$logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority  +\beta'X$$
@@ -88,9 +88,9 @@ We will test this hypothesis with an interaction between sexual orientation and 
 
 The test of our hypothesis will be
 
-$H_0: \beta_3 =0$
+$H_0: \beta_3 = 0$
 
-$H_1: \beta_3 ≠ 0 $
+$H_1: \beta_3 ≠ 0$
 
 $logit(GoodHealth)=\beta_0+\beta_1 \cdot SexualMinority+ \beta_2 \cdot SexSpecificCancers+\beta_3 \cdot (SexualMinority×SexSpecificCancers)+\beta′ \cdot X$
 
@@ -100,9 +100,9 @@ This information comes from a question about the respondent’s race: “What ra
 
 We will try to test each racial group separately, but we may have to collapse into an indicator/binary variable of white vs. non-white race.
 
-$H_0:\beta_3=0$
+$H_0: \beta_3 = 0$
 
-$H_1:\beta_3≠0$
+$H_1: \beta_3 ≠ 0$
 
 $$\begin{split}
 logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
