@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = TRUE,
 library(moderndive)
 library(Stat2Data)
 library(tidyverse)
+
+screendata <- read.csv("*")
 ```
 
 # Draft Proposal
