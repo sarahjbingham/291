@@ -88,14 +88,11 @@ We will test this hypothesis with an interaction between sexual orientation and 
 
 The test of our hypothesis will be
 
-$H_0: \beta_3=0$
+$H_0: \beta_3 =0$
 
-$H_1: \beta_3≠0$
+$H_a: \beta_3 ≠ 0 $
 
-$$\begin{split}
-logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 SexSpecificCancers + \\
- \beta_3 (SexualMinority \times SexSpecificCancers) +\beta'X
-\end{split}$$
+$logit(GoodHealth)=\beta_0+\beta_1 \cdot SexualMinority+ \beta_2 \cdot SexSpecificCancers+\beta_3 \cdot (SexualMinority×SexSpecificCancers)+\beta′ \cdot X$
 
 *2. Sexual minorities of color will have worse outcomes than white sexual minorities.*
 
@@ -105,12 +102,9 @@ We will try to test each racial group separately, but we may have to collapse in
 
 $H_0: \beta_3=0$
 
-$H_1: \beta_3≠0$
+$H_A:\beta_3≠0$
 
-$$\begin{split}
-logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
-\beta_3 (SexualMinority \times NonWhiteRace) +\beta'X
-\end{split}$$
+logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′X
 
 This analysis will be restricted to only sexual minorities.
 
