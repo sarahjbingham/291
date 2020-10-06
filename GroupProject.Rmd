@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE,
 # Draft Proposal
 #### 2020-10-26
 ## Lika Mikhelashvili, Kelly Ford, Sarah Bingham
-## “Hello Statisticians”
+## **“Hello Statisticians”**
 
 Members:
 
@@ -28,9 +28,9 @@ Sarah Bingham
 # Purpose and Hypotheses  
 This project focuses on the self-reported quality of life and general health of sexual minorities (i.e, gay/bisexual/lesbian identified persons) with a history of cancer. There is some evidence that sexual minorities with history of cancer may have worse quality of life than heterosexual counterparts. This difference may be pronounced for those with sex-specific cancers, where the interactions with providers or the changes to one’s sexual/gender identity matter differently for sexual minorities. There may also be differences within sexual minorities by race, as per intersectionality theory. This project will test that association in a large, nationally-representative sample.
 
-The primary hypothesis is that, among those with history of cancer, sexual minorities will have lower quality of life than heterosexual counterparts.
+The **primary hypothesis** is that, among those with history of cancer, sexual minorities will have lower quality of life than heterosexual counterparts.
 
-The secondary hypotheses are:
+The **secondary hypotheses** are:
 
 The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.
 
@@ -44,10 +44,10 @@ NHIS includes individual survey respondents such that each observation is a diff
 
 NHIS is an annual, cross-sectional household survey. Individuals are clustered in households, particularly that one adult and one random child are included from each household. Since we are only interested in adults, each observation should be independent of the others as none of them will be co-residents in the same household. Moreover, although we are pooling data from multiple years, since the survey is cross-sectional, the independence assumption is not violated with repeated measures on the same person.
 
-As this topicis specific to those with a history of cancer, we will filter the data to include only those with history of cancer using the variable CANCEREV. Thus, the population of inference will be the US adult population with cancer.
+As this topicis specific to those with a history of cancer, we will filter the data to include only those with history of cancer using the variable [CANCEREV](https://nhis.ipums.org/nhis-action/variables/CANCEREV#codes_section). Thus, the population of inference will be the US adult population with cancer.
 
 # Response Variable  
-The response variable will be a measure of self-rated health: “Would you say your health in general is excellent, very good, good, fair, or poor?”. The variable is called HEALTH in IPUMS-NHIS.
+The response variable will be a measure of self-rated health: “Would you say your health in general is excellent, very good, good, fair, or poor?”. The variable is called [HEALTH](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in IPUMS-NHIS.
 
 The response options are: 1=Excellent; 2=Very good; 3=Good; 4=Fair; 5=Poor; 7=Refused; 9=Don’t know.
 
