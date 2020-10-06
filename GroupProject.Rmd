@@ -90,7 +90,7 @@ The test of our hypothesis will be
 
 $H_0: \beta_3 =0$
 
-$H_a: \beta_3 ≠ 0 $
+$H_1: \beta_3 ≠ 0 $
 
 $logit(GoodHealth)=\beta_0+\beta_1 \cdot SexualMinority+ \beta_2 \cdot SexSpecificCancers+\beta_3 \cdot (SexualMinority×SexSpecificCancers)+\beta′ \cdot X$
 
@@ -100,11 +100,11 @@ This information comes from a question about the respondent’s race: “What ra
 
 We will try to test each racial group separately, but we may have to collapse into an indicator/binary variable of white vs. non-white race.
 
-$H_0: \beta_3=0$
+$H_0:\beta_3=0$
 
-$H_A:\beta_3≠0$
+$H_1:\beta_3≠0$
 
-logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′X
+$$logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′$$X
 
 This analysis will be restricted to only sexual minorities.
 
@@ -115,7 +115,7 @@ We suspect that demographic and socio-economic factors will be important to cont
 2. Sex [SEX](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
 3. Marital Status [MARSTCOHAB](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
 4. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
-6. Hispanic Ethnicity [HISPYN](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
+5. Hispanic Ethnicity [HISPYN](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
 6. Education [EDUC](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
 
 We might want to control for other health characteristics like smoking, physical activity, diet, and mental health. We will explore that in our analysis after we review the literature to find what is most commonly done.
