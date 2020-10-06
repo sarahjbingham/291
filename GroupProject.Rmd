@@ -12,15 +12,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       options(scipen=999))
 ```
 
-#### Libraries and Data Import  
-```{r}
-library(moderndive)
-library(Stat2Data)
-library(tidyverse)
-
-screendata <- read.csv("*")
-```
-
 # Draft Proposal
 #### 2020-10-26
 ## Lika Mikhelashvili, Kelly Ford, Sarah Bingham
