@@ -1,12 +1,126 @@
 ---
-title: "Untitled"
-output: github_document
+title: "Draft Proposal"
+output:
+  html_document:
+    code_folding: show
+
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      options(scipen=999))
 ```
 
-## Best Group Ever
+#### Libraries and Data Import  
+```{r}
+library(moderndive)
+library(Stat2Data)
+library(tidyverse)
+```
 
-#### You should see these changes in our document!
+# Draft Proposal
+#### 2020-10-26
+## Lika Mikhelashvili, Kelly Ford, Sarah Bingham
+## “Hello Statisticians”
+
+Members:
+
+Lika Mikhelashvili  
+Kelly Ford  
+Sarah Bingham  
+
+Project Title  
+
+Purpose and Hypotheses
+This project focuses on the self-reported quality of life and general health of sexual minorities (i.e, gay/bisexual/lesbian identified persons) with a history of cancer. There is some evidence that sexual minorities with history of cancer may have worse quality of life than heterosexual counterparts. This difference may be pronounced for those with sex-specific cancers, where the interactions with providers or the changes to one’s sexual/gender identity matter differently for sexual minorities. There may also be differences within sexual minorities by race, as per intersectionality theory. This project will test that association in a large, nationally-representative sample.
+
+The primary hypothesis is that, among those with history of cancer, sexual minorities will have lower quality of life than heterosexual counterparts.
+
+The secondary hypotheses are:
+
+The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.
+
+Sexual minorities of color will have worse outcomes than white sexual minorities.
+
+Data
+This study will use data from IPUMS-NHIS. National Health Interview Survey (NHIS) annually surveys the US non-institutionalized population about their health, health care, and health conditions. NHIS first asked questions about sexual orientation in 2013. Because sexual minority populations with cancer will be relatively rare, we will pool data from 2013-2016 to maximize the sample size and increase statistical power.
+
+Population
+NHIS includes individual survey respondents such that each observation is a different person.
+
+NHIS is an annual, cross-sectional household survey. Individuals are clustered in households, particularly that one adult and one random child are included from each household. Since we are only interested in adults, each observation should be independent of the others as none of them will be co-residents in the same household. Moreover, although we are pooling data from multiple years, since the survey is cross-sectional, the independence assumption is not violated with repeated measures on the same person.
+
+As this topicis specific to those with a history of cancer, we will filter the data to include only those with history of cancer using the variable CANCEREV. Thus, the population of inference will be the US adult population with cancer.
+
+Response Variable
+The response variable will be a measure of self-rated health: “Would you say your health in general is excellent, very good, good, fair, or poor?”. The variable is called HEALTH in IPUMS-NHIS.
+
+The response options are: 1=Excellent; 2=Very good; 3=Good; 4=Fair; 5=Poor; 7=Refused; 9=Don’t know.
+
+We will create a new, two-level variable from these responses that indicates good health: Excellent/Very good vs. Good/Fair/Poor.
+
+We will use logistic regression to model this outcome.
+
+Explanatory Variables
+Primary hypothesis
+As stated above in “Population”, we will restrict this analysis to those who have cancer.
+
+The primary hypotheses will use a variable indicating sexual orientation . We will create this variable from two different sources.
+
+Individuals self-report their sexual orientation (SEXORIEN in NHIS) in response to a question: “Which of the following best represents how you think of yourself?”
+
+Answer options: 1=Gay; 2=Straight, that is, not gay; 3=Bisexual; 4=Something else; 5=I don’t know the answer; 7=Refused.
+
+We will combine responses and create a variable that indicates being either gay/bisexual vs. straight/something else/don’t know.
+
+The test of our hypothesis will be
+
+H0:β1=0
+
+HA:β1≠0
+
+from the regression model:
+logit(GoodHealth)=β0+β1SexualMinority+β′X
+
+where β′X is a vector of covariates included to control for potential confounding. They are described below.
+
+Secondary hypotheses
+1. The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.
+
+We will create an indicator variable of those with breast, ovarian, cervical, uterine, testicular or prostate cancer vs. other kinds of cancer. NHIS asks questions about cancer type at every year between 2013-2016, detailed here.
+
+We will test this hypothesis with an interaction between sexual orientation and sex-specific cancer type.
+
+The test of our hypothesis will be
+
+H0:β3=0
+
+HA:β3≠0
+
+logit(GoodHealth)=β0+β1SexualMinority+β2SexSpecificCancers+β3(SexualMinority×SexSpecificCancers)+β′X
+
+2. Sexual minorities of color will have worse outcomes than white sexual minorities.
+
+This information comes from a question about the respondent’s race: “What race or races do you consider yourself to be? Please select 1 or more of these categories.” IPUMS included 5 categories: White, Black/African American, American Indian/Alaskan Native, Asian, Multiple Race in the RACENEW variable.
+
+We will try to test each racial group separately, but we may have to collapse into an indicator/binary variable of white vs. non-white race.
+
+H0:β3=0
+
+HA:β3≠0
+
+logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′X
+
+This analysis will be restricted to only sexual minorities.
+
+Potential Confounders
+We suspect that demographic and socio-economic factors will be important to control for, as they would be associated with both sexual orientation and with health.
+
+Age AGE
+Sex SEX
+Marital Status MARSTCOHAB
+Race RACENEW
+Hispanic Ethnicity HISPYN
+Education EDUC
+We might want to control for other health characteristics like smoking, physical activity, diet, and mental health. We will explore that in our analysis after we review the literature to find what is most commonly done.
