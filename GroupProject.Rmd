@@ -93,8 +93,8 @@ $H_0: \beta_3=0$
 $H_1: \beta_3≠0$
 
 $$\begin{split}
-logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
-\beta_3 (SexualMinority \times NonWhiteRace) +\beta'X
+logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 SexSpecificCancers + \\
+ \beta_3 (SexualMinority \times SexSpecificCancers) +\beta'X
 \end{split}$$
 
 *2. Sexual minorities of color will have worse outcomes than white sexual minorities.*
@@ -103,11 +103,14 @@ This information comes from a question about the respondent’s race: “What ra
 
 We will try to test each racial group separately, but we may have to collapse into an indicator/binary variable of white vs. non-white race.
 
-H0:β3=0
+$H_0: \beta_3=0$
 
-HA:β3≠0
+$H_1: \beta_3≠0$
 
-logit(GoodHealth)=β0+β1SexualMinority+β2NonWhiteRace+β3(SexualMinority×NonWhiteRace)+β′X
+$$\begin{split}
+logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
+\beta_3 (SexualMinority \times NonWhiteRace) +\beta'X
+\end{split}$$
 
 This analysis will be restricted to only sexual minorities.
 
