@@ -17,6 +17,20 @@ knitr::opts_chunk$set(echo = TRUE,
 ### Lika Mikhelashvili, Kelly Ford, Sarah Bingham
 **“Hello Statisticians”**
 
+```{r}
+library(ipumsr)
+library(ggplot2)
+library(moderndive)
+ddi <- read_ipums_ddi("usa_00002.xml")
+data <- read_ipums_micro(ddi)
+```
+
+```{r}
+ggplot(data = data, aes( x = CILAPTOP, y = DIFFEYE))+
+  geom_point()+
+  geom_smooth(method = lm, formula = y~x, se = FALSE)
+```
+
 Members:
 
 * Lika Mikhelashvili  
