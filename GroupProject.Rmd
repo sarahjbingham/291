@@ -27,7 +27,7 @@ data <- read_ipums_micro(ddi)
 ```
 
 ```{r}
-ggplot(data = data, aes( x = CILAPTOP, y = DIFFEYE))+
+ggplot(data = data, aes( x = PCUSEFREQ, y = DEPFEELEVL))+
   geom_point()+
   geom_smooth(method = lm, formula = y~x, se = FALSE)
 ```
