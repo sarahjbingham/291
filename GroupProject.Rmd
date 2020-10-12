@@ -33,7 +33,7 @@ ggplot(data = data, aes( x = CILAPTOP, y = DIFFEYE))+
 
 Members:
 
-* Lika Mikhelashvili  
+* Lika Mikhelashvili hihi  
 * Kelly Ford  
 * Sarah Bingham hiiii!  
 
