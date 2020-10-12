@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE,
 **“Hello Statisticians”**
 
 ```{r}
+install.packages("ipumsr")
 library(ipumsr)
 library(ggplot2)
 library(moderndive)
