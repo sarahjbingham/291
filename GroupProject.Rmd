@@ -34,12 +34,12 @@ ggplot(data = data, aes( x = PCUSEFREQ, y = DEPFEELEVL))+
 
 Members:
 
-* Lika Mikhelashvili hihi  
-* Kelly Ford  hello??
-* Sarah Bingham hiiii!  
+* Lika Mikhelashvili  
+* Kelly Ford  
+* Sarah Bingham  
 
 ## Project Title 
-Quality of Life among Sexual Minority Cancer Survivors
+Health Ramifications of Increased Screen Time
 
 ## Purpose and Hypotheses  
 This project focuses on the self-reported quality of life and general health of sexual minorities (i.e, gay/bisexual/lesbian identified persons) with a history of cancer. There is some evidence that sexual minorities with history of cancer may have worse quality of life than heterosexual counterparts. This difference may be pronounced for those with sex-specific cancers, where the interactions with providers or the changes to one’s sexual/gender identity matter differently for sexual minorities. There may also be differences within sexual minorities by race, as per intersectionality theory. This project will test that association in a large, nationally-representative sample.
