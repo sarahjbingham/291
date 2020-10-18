@@ -53,23 +53,19 @@ The **secondary hypotheses** are:
 2. Sexual minorities of color will have worse outcomes than white sexual minorities.
 
 ## Data  
-This study will use data from IPUMS-NHIS. National Health Interview Survey (NHIS) annually surveys the US non-institutionalized population about their health, health care, and health conditions. NHIS first asked questions about sexual orientation in 2013. Because sexual minority populations with cancer will be relatively rare, we will pool data from 2013-2016 to maximize the sample size and increase statistical power.
+Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, effects of depression and anxiety on productivity, depression levels and medications, and frequency of computer use.
 
 ## Population  
-NHIS includes individual survey respondents such that each observation is a different person.
+IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis.
 
-NHIS is an annual, cross-sectional household survey. Individuals are clustered in households, particularly that one adult and one random child are included from each household. Since we are only interested in adults, each observation should be independent of the others as none of them will be co-residents in the same household. Moreover, although we are pooling data from multiple years, since the survey is cross-sectional, the independence assumption is not violated with repeated measures on the same person.
-
-As this topicis specific to those with a history of cancer, we will filter the data to include only those with history of cancer using the variable [CANCEREV](https://nhis.ipums.org/nhis-action/variables/CANCEREV#codes_section). Thus, the population of inference will be the US adult population with cancer.
+Since we are looking specifically at screen time and sleep, our population will be individuals who have self-reported their frequency of computer use [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). This will require us to filter out all participants who did not report their computer use (rated as 0, 7, 8, 9) and include only those who answered this question (rated as 1, 2, 3, 4).
 
 ## Response Variable  
-The response variable will be a measure of self-rated health: “Would you say your health in general is excellent, very good, good, fair, or poor?”. The variable is called [HEALTH](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in IPUMS-NHIS.
+Our response variable measures self-rated sleep. The variable [HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HRSLEEP#codes_section) in IPUMS-NHIS asked participants, "On average, how many hours of sleep do you get in a 24-hour period?" 
 
-The response options are: 1=Excellent; 2=Very good; 3=Good; 4=Fair; 5=Poor; 7=Refused; 9=Don’t know.
+Participants were instructed to enter the number of hours slept using whole numbers and rounding up to 30 minutes if necessary.
 
-We will create a new, two-level variable from these responses that indicates good health: Excellent/Very good vs. Good/Fair/Poor.
-
-We will use logistic regression to model this outcome.
+We will use linear regression to model this outcome.
 
 ## Explanatory Variables  
 ### Primary hypothesis  
@@ -127,13 +123,13 @@ logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
 This analysis will be restricted to only sexual minorities.
 
 #### Potential Confounders  
-We suspect that demographic and socio-economic factors will be important to control for, as they would be associated with both sexual orientation and with health.
+We suspect that age and mental health will be potential confounders, as sleep habits vary greatly by age and mental health. We will also examine race, weight, income, and substance use, which we suspect will contribute to sleeping habits.
 
-1. Age [AGE](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
-2. Sex [SEX](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
-3. Marital Status [MARSTCOHAB](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)
-4. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
-5. Hispanic Ethnicity [HISPYN](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)
-6. Education [EDUC](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
-
-We might want to control for other health characteristics like smoking, physical activity, diet, and mental health. We will explore that in our analysis after we review the literature to find what is most commonly done.
+1. Age [AGE](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)  
+2. Mental Health [FLDEPRESMO](https://nhis.ipums.org/nhis-action/variables/FLDEPRESMO#codes_section)  
+3. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)  
+4. Weight [WEIGHT](https://nhis.ipums.org/nhis-action/variables/WEIGHT#codes_section)  
+5. Income [EARNIMP1](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
+6. Alcohol Use [ALCDAYSWK](https://nhis.ipums.org/nhis-action/variables/ALCDAYSWK#codes_section)  
+7. Sleep Medication [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)  
+8. Depression Medication [DEPRX](https://nhis.ipums.org/nhis-action/variables/DEPRX#codes_section)  
