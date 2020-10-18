@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE,
 library(ipumsr)
 library(ggplot2)
 library(moderndive)
-ddi <- read_ipums_ddi("nhis_00001.xml")
+ddi <- read_ipums_ddi("nhis_00001.xml.zip")
 data <- read_ipums_micro(ddi)
 ```
 
