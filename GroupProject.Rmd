@@ -69,15 +69,15 @@ We will use linear regression to model this outcome.
 
 ## Explanatory Variables  
 ### Primary hypothesis  
-As stated above in “Population”, we will restrict this analysis to those who have cancer.
+As stated above in “Population”, we have received data from about 100,000 individuals among 45,000 households in the United States. 
 
-The primary hypotheses will use a variable indicating sexual orientation . We will create this variable from two different sources.
+The primary hypotheses will use a variable indicating usual hours of sleep her day . We will create this variable from two different sources.
 
-Individuals self-report their sexual orientation ([SEXORIEN](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “Which of the following best represents how you think of yourself?”
+Individuals self-report their usual hours of sleep ([HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “About how many hours of sleep do you get per day?”
 
-Answer options: 1=Gay; 2=Straight, that is, not gay; 3=Bisexual; 4=Something else; 5=I don’t know the answer; 7=Refused.
+Answer options: 01= 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused.
 
-We will combine responses and create a variable that indicates being either gay/bisexual vs. straight/something else/don’t know.
+We will combine responses and create a variable that indicates a small amount of sleep (between 0 and 6 hours) vs. a normal amount of sleep (between 7 and 10 hours) vs. a large amount of sleep (over 10 hours).
 
 The test of our hypothesis will be
 
@@ -86,7 +86,7 @@ $H_0: \beta_1 = 0$
 $H_1: \beta_1 ≠ 0$
 
 from the regression model:  
-$$logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority  +\beta'X$$
+$$logit(GoodHealth) = \beta_0 + \beta_1 UsualSleep  +\beta'X$$
 
 where $\beta'X$ is a vector of covariates included to control for potential confounding. They are described below.
 
