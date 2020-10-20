@@ -71,7 +71,7 @@ We will use linear regression to model this outcome.
 ### Primary hypothesis  
 As stated above in “Population”, we have received data from about 100,000 individuals among 45,000 households in the United States. 
 
-The primary hypotheses will use a variable indicating usual hours of sleep her day . We will create this variable from two different sources.
+The primary hypotheses will use a variable indicating usual hours of sleep her day. We will create this variable from two different sources.
 
 Individuals self-report their usual hours of sleep ([HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “About how many hours of sleep do you get per day?”
 
@@ -91,36 +91,50 @@ $$logit(GoodHealth) = \beta_0 + \beta_1 UsualSleep  +\beta'X$$
 where $\beta'X$ is a vector of covariates included to control for potential confounding. They are described below.
 
 ### Secondary hypotheses  
-*1. The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.*
 
-We will create an indicator variable of those with breast, ovarian, cervical, uterine, testicular or prostate cancer vs. other kinds of cancer. NHIS asks questions about cancer type at every year between 2013-2016, detailed [here](https://nhis.ipums.org/nhis-action/variables/group?id=conditions_cancer).
+*1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.*
 
-We will test this hypothesis with an interaction between sexual orientation and sex-specific cancer type.
+The variables we'll be using to test the hypothesis are 
 
-The test of our hypothesis will be
+  - Sleep Medication - the outcome variable [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)
 
-$H_0: \beta_3 = 0$
+  - Frequency of Computer Use - the explanatory variable [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section)
+  
+The surveyed individuals answer the question *"In the past week, how many times did you take medication to help you fall asleep or stay asleep?"* They answer 0 if they didn't take medication to sleep in the past week; 01-06 for medication taken 1-6 times; 07 for medication taken 7 or more times. 
 
-$H_1: \beta_3 ≠ 0$
+In the dataset there are many individuals who refused to answer the question, so we will filter out the data leaving in those individuals only who answered the question.
 
-$logit(GoodHealth)=\beta_0+\beta_1 \cdot SexualMinority+ \beta_2 \cdot SexSpecificCancers+\beta_3 \cdot (SexualMinority×SexSpecificCancers)+\beta′ \cdot X$
+The test of our hypothesis will be:
 
-*2. Sexual minorities of color will have worse outcomes than white sexual minorities.*
+- The relationship between frequency of computer use and the amount of sleep medication taken is not significant $H_0: \beta_1 = 0$
 
-This information comes from a question about the respondent’s race: “What race or races do you consider yourself to be? Please select 1 or more of these categories.” IPUMS included 5 categories: White, Black/African American, American Indian/Alaskan Native, Asian, Multiple Race in the RACENEW variable.
+- There is a significant relationship between the frequency of computer use and the amount of sleep medication taken $H_1: \beta_1 ≠ 0$
 
-We will try to test each racial group separately, but we may have to collapse into an indicator/binary variable of white vs. non-white race.
+from the regression model:  
+$$SleepMedication = \beta_0 + \beta_1ComputerUseFrequency$$
 
-$H_0: \beta_3 = 0$
+ 
+*2. Individuals with higher frequency of computer use will display the use of depression medication*
 
-$H_1: \beta_3 ≠ 0$
+The variables we use to test this hypothesis are: 
 
-$$\begin{split}
-logit(GoodHealth) = \beta_0 + \beta_1 SexualMinority + \beta_2 NonWhiteRace + \\
-\beta_3 (SexualMinority \times NonWhiteRace) +\beta'X
-\end{split}$$
+  - Depression Medication - the outcome variable [DEPRX](https://nhis.ipums.org/nhis-action/variables/DEPRX#codes_section)
 
-This analysis will be restricted to only sexual minorities.
+  - Frequency of Computer Use - the explanatory variable [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section)
+  
+The surveyed individuals answer the question whether they took medication for depression. They answer 0 if they haven't taken any medication for depression and answer 1 if they have taken medication for depression. The variable is a categorical variable so we will transform 1 into "yes" and 0 into "no". We will analyze this in relation to computer use and will observe whether the high frequency computer users have taken depression medication.
+
+Hypotheses will be: 
+
+  - There is no significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 = 0$
+
+  - There is a significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 ≠ 0$
+
+
+
+*3. Individuals with higher frequency of computer use will display more mental health related problems.*
+
+Mental Health [FLDEPRESMO](https://nhis.ipums.org/nhis-action/variables/FLDEPRESMO#codes_section)
 
 #### Potential Confounders  
 We suspect that age and mental health will be potential confounders, as sleep habits vary greatly by age and mental health. We will also examine race, weight, income, and substance use, which we suspect will contribute to sleeping habits.
