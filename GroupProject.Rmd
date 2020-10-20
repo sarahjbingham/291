@@ -130,7 +130,8 @@ Hypotheses will be:
 
   - There is a significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 ≠ 0$
 
-
+from the regression model:  
+$$DepressionMedicationTaken = \beta_0 + \beta_1ComputerUseFrequency$$
 
 *3. Individuals with higher frequency of computer use will display more mental health related problems.*
 
