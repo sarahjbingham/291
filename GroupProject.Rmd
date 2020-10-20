@@ -110,7 +110,8 @@ The test of our hypothesis will be:
 
 - There is a significant relationship between the frequency of computer use and the amount of sleep medication taken $H_1: \beta_1 ≠ 0$
 
-from the regression model:  
+We will try to predict the amount of sleep medication taken based on the frequency of computer use:
+
 $$SleepMedication = \beta_0 + \beta_1ComputerUseFrequency$$
 
  
@@ -130,12 +131,27 @@ Hypotheses will be:
 
   - There is a significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 ≠ 0$
 
-from the regression model:  
+We will predict the amount of depression medication taken from the frequency of computer use:
+
 $$DepressionMedicationTaken = \beta_0 + \beta_1ComputerUseFrequency$$
 
-*3. Individuals with higher frequency of computer use will display more mental health related problems.*
+*3. Individuals with higher frequency of computer use will display higher levels of depression.*
 
-Mental Health [FLDEPRESMO](https://nhis.ipums.org/nhis-action/variables/FLDEPRESMO#codes_section)
+Explanatory variable used to test the hypothesis: 
+
+  - Level of depression [DEPFEELEVL](https://nhis.ipums.org/nhis-action/variables/DEPFEELEVL#description_section)
+  
+The surveyed individuals indicate whether their level of depression, the last time they felt depressed, was "a little," "a lot," or "somewhere in between a little and a lot." The indicator variables we will create for these responses are 1- a little, 2 - a lot, 2 - somewhere in between a little and a lot. Some individuals refused to answer the question, so we will filter out the data to include only those individuals that did answer the question.
+
+Hypotheses will be: 
+
+  - There is no significant relationship between the level of depression and the frequency of computer use $H_0: \beta_1 = 0$
+  
+  - There is a significant relationship between the level of depression and the frequency of computer use $H_0: \beta_1 ≠ 0$
+
+We will try to predict the level of depression based on the frequency of computer use:
+
+$$DepressionLevel = \beta_0 + \beta_1ComputerUseFrequency$$
 
 #### Potential Confounders  
 We suspect that age and mental health will be potential confounders, as sleep habits vary greatly by age and mental health. We will also examine race, weight, income, and substance use, which we suspect will contribute to sleeping habits.
