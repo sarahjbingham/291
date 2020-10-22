@@ -18,7 +18,6 @@ knitr::opts_chunk$set(echo = TRUE,
 **“Hello Statisticians”**
 
 ```{r}
-#install.packages("ipumsr")
 library(ipumsr)
 library(ggplot2)
 library(moderndive)
@@ -42,9 +41,9 @@ The **primary hypothesis** is that those with more screen time per week (most da
 
 The **secondary hypotheses** are:
 
-1. The difference in quality of life between sexual minorities and heterosexual cancer survivors will be larger for sex-specific cancers (e.g., breast or prostate) than other cancers.
-
-2. Sexual minorities of color will have worse outcomes than white sexual minorities.
+1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.
+2. Individuals with higher frequency of computer use will display the use of depression medication
+3. Individuals with higher frequency of computer use will display higher levels of depression.
 
 ## Data  
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, effects of depression and anxiety on productivity, depression levels and medications, and frequency of computer use.
