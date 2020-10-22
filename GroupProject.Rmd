@@ -18,11 +18,10 @@ knitr::opts_chunk$set(echo = TRUE,
 **“Hello Statisticians”**
 
 ```{r}
-#install.packages("ipumsr")
 library(ipumsr)
 library(ggplot2)
 library(moderndive)
-ddi <- read_ipums_ddi("nhis_00001.xml.zip")
+ddi <- read_ipums_ddi("nhis_00001.xml")
 data <- read_ipums_micro(ddi)
 ```
 
