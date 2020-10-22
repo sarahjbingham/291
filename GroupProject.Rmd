@@ -26,12 +26,6 @@ ddi <- read_ipums_ddi("nhis_00001.xml.zip")
 data <- read_ipums_micro(ddi)
 ```
 
-```{r}
-ggplot(data = data, aes( x = PCUSEFREQ, y = DEPFEELEVL))+
-  geom_point()+
-  geom_smooth(method = lm, formula = y~x, se = FALSE)
-```
-
 Members:
 
 * Lika Mikhelashvili  
