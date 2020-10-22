@@ -41,9 +41,10 @@ The **primary hypothesis** is that those with more screen time per week (most da
 
 The **secondary hypotheses** are:
 
-1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.
-2. Individuals with higher frequency of computer use will display the use of depression medication
-3. Individuals with higher frequency of computer use will display higher levels of depression.
+1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.  
+2. Individuals with higher frequency of computer use will display the use of depression medication.  
+3. Individuals with higher frequency of computer use will display higher levels of depression.  
+
 ## Data  
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, effects of depression and anxiety on productivity, depression levels and medications, and frequency of computer use.
 
