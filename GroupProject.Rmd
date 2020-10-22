@@ -74,15 +74,12 @@ We will combine responses and create a variable that indicates a small amount of
 
 The test of our hypothesis will be
 
-$H_0: \beta_1 = 0$
+$ H_0: \beta_1 = 0$
 
-$H_1: \beta_1 ≠ 0$
+$ H_1: \beta_1 ≠ 0$
 
 from the regression model:  
-$$logit(GoodHealth) = \beta_0 + \beta_1 UsualSleep  +\beta'X$$
-
-where $\beta'X$ is a vector of covariates included to control for potential confounding. They are described below.
-
+$$ UsualSleep = \beta_0 + \beta_1 ComputerUse $$
 ### Secondary hypotheses  
 
 *1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.*
