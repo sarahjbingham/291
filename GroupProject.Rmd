@@ -68,7 +68,7 @@ The primary hypotheses will use a variable indicating usual hours of sleep her d
 
 Individuals self-report their usual hours of sleep ([HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “About how many hours of sleep do you get per day?”
 
-Answer options: 01= 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused.
+Answer options: 01= 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused. We will filter the data by removing those individuals who refused to answer or did not provide a meaningful information.
 
 We will combine responses and create a variable that indicates a small amount of sleep (between 0 and 6 hours) vs. a normal amount of sleep (between 7 and 10 hours) vs. a large amount of sleep (over 10 hours).
 
