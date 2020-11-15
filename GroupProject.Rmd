@@ -46,7 +46,7 @@ The **secondary hypotheses** are:
 3. Individuals with higher frequency of computer use will display higher levels of depression.
 
 ## Data  
-Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, effects of depression and anxiety on productivity, depression levels and medications, and frequency of computer use.
+Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, depression levels and medications, and frequency of computer use.
 
 ## Population  
 IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis.
@@ -145,13 +145,10 @@ We will try to predict the level of depression based on the frequency of compute
 $$DepressionLevel = \beta_0 + \beta_1ComputerUseFrequency$$
 
 #### Potential Confounders  
-We suspect that age and mental health will be potential confounders, as sleep habits vary greatly by age and mental health. We will also examine race, weight, income, and substance use, which we suspect will contribute to sleeping habits.
+We suspect that age will be a potential confounder, as sleep habits vary greatly by age. We will also examine race, weight, income, and alcohol use, which we suspect will contribute to sleeping habits.
 
 1. Age [AGE](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_core)  
-2. Mental Health [FLDEPRESMO](https://nhis.ipums.org/nhis-action/variables/FLDEPRESMO#codes_section)  
-3. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)  
-4. Weight [WEIGHT](https://nhis.ipums.org/nhis-action/variables/WEIGHT#codes_section)  
-5. Income [EARNIMP1](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
-6. Alcohol Use [ALCDAYSWK](https://nhis.ipums.org/nhis-action/variables/ALCDAYSWK#codes_section)  
-7. Sleep Medication [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)  
-8. Depression Medication [DEPRX](https://nhis.ipums.org/nhis-action/variables/DEPRX#codes_section)  
+2. Race [RACENEW](https://nhis.ipums.org/nhis-action/variables/group?id=demographic_ethnicity)  
+3. Weight [WEIGHT](https://nhis.ipums.org/nhis-action/variables/WEIGHT#codes_section)  
+4. Income [EARNIMP1](https://nhis.ipums.org/nhis-action/variables/group?id=economic_education)  
+5. Alcohol Use [ALCDAYSWK](https://nhis.ipums.org/nhis-action/variables/ALCDAYSWK#codes_section)  
