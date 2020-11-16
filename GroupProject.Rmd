@@ -81,68 +81,6 @@ $ H_1: \beta_1 ≠ 0$
 from the regression model:  
 $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency $$
 
-### Secondary hypotheses  
-
-*1. Individuals with higher frequency of computer use will display more frequent consumption of medication for sleep.*
-
-The variables we'll be using to test the hypothesis are 
-
-  - Sleep Medication - the outcome variable [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)
-
-  - Frequency of Computer Use - the explanatory variable [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section)
-  
-The surveyed individuals answer the question *"In the past week, how many times did you take medication to help you fall asleep or stay asleep?"* They answer 0 if they didn't take medication to sleep in the past week; 01-06 for medication taken 1-6 times; 07 for medication taken 7 or more times. 
-
-In the dataset there are many individuals who refused to answer the question, so we will filter out the data leaving only those individuals who answered the question.
-
-The test of our hypothesis will be:
-
-- The relationship between frequency of computer use and the amount of sleep medication taken is not significant $H_0: \beta_1 = 0$
-
-- There is a significant relationship between the frequency of computer use and the amount of sleep medication taken $H_1: \beta_1 ≠ 0$
-
-We will try to predict the amount of sleep medication taken based on the frequency of computer use:
-
-$$SleepMedication = \beta_0 + \beta_1ComputerUseFrequency$$
-
- 
-*2. Individuals with higher frequency of computer use will display the use of depression medication*
-
-The variables we use to test this hypothesis are: 
-
-  - Depression Medication - the outcome variable [DEPRX](https://nhis.ipums.org/nhis-action/variables/DEPRX#codes_section)
-
-  - Frequency of Computer Use - the explanatory variable [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section)
-  
-The surveyed individuals answer the question whether they took medication for depression. They answer 0 if they haven't taken any medication for depression and answer 1 if they have taken medication for depression. The variable is a categorical variable so we will transform 1 into "yes" and 0 into "no". We will analyze this in relation to computer use and will observe whether the high frequency computer users have taken depression medication.
-
-Hypotheses will be: 
-
-  - There is no significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 = 0$
-
-  - There is a significant relationship between the frequency of computer use and the use of depression medication $H_0: \beta_1 ≠ 0$
-
-We will predict the amount of depression medication taken from the frequency of computer use:
-
-$$DepressionMedicationTaken = \beta_0 + \beta_1ComputerUseFrequency$$
-
-*3. Individuals with higher frequency of computer use will display higher levels of depression.*
-
-Explanatory variable used to test the hypothesis: 
-
-  - Level of depression [DEPFEELEVL](https://nhis.ipums.org/nhis-action/variables/DEPFEELEVL#description_section)
-  
-The surveyed individuals indicate whether their level of depression, the last time they felt depressed, was "a little," "a lot," or "somewhere in between a little and a lot." The indicator variables we will create for these responses are 1- a little, 2 - a lot, 2 - somewhere in between a little and a lot. Some individuals refused to answer the question, so we will filter out the data to include only those individuals that did answer the question.
-
-Hypotheses will be: 
-
-  - There is no significant relationship between the level of depression and the frequency of computer use $H_0: \beta_1 = 0$
-  
-  - There is a significant relationship between the level of depression and the frequency of computer use $H_0: \beta_1 ≠ 0$
-
-We will try to predict the level of depression based on the frequency of computer use:
-
-$$DepressionLevel = \beta_0 + \beta_1ComputerUseFrequency$$
 
 #### Potential Confounders  
 We suspect that age will be a potential confounder, as sleep habits vary greatly by age. We will also examine race, weight, income, and alcohol use, which we suspect will contribute to sleeping habits.
