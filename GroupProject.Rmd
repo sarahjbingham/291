@@ -43,9 +43,7 @@ The **primary hypothesis** is that screen time per week, depression medication, 
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, depression levels and medications, and frequency of computer use.
 
 ## Population  
-IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis.
-
-Since we are looking specifically at screen time and sleep, our population will be individuals who have self-reported their frequency of computer use [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU, 7 = Unknown-refused, 8 = Unknown-not ascertained, 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never, 2 = Some days, 3 = Most days, 4 = Every day).
+IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question", "did not know", ect.
 
 ## Primary hypothesis  
 As stated above in “Population,” we have received data from about 100,000 individuals among 45,000 households in the United States. 
@@ -77,7 +75,9 @@ We will use multiple regression to model this outcome.
 
   - Computer Use Frequency
 
-Frequency of computer use0 NIU1 Never or almost never2 Some days3 Most days4 Every day7 Unknown-refused8 Unknown-not ascertained9 Unknown-don't know
+[PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). 
+
+This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU, 7 = Unknown-refused, 8 = Unknown-not ascertained, 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never, 2 = Some days, 3 = Most days, 4 = Every day).
 
   - Sleep Medication  
 
