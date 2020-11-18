@@ -48,9 +48,13 @@ IPUMS-NHIS data is collected annually of approximately 100,000 individuals throu
 Since we are looking specifically at screen time and sleep, our population will be individuals who have self-reported their frequency of computer use [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU, 7 = Unknown-refused, 8 = Unknown-not ascertained, 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never, 2 = Some days, 3 = Most days, 4 = Every day).
 
 ## Response Variable  
-Our response variable measures self-rated sleep. The variable [HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HRSLEEP#codes_section) in IPUMS-NHIS asked participants, "On average, how many hours of sleep do you get in a 24-hour period?" 
+Our response variable measures self-reported sleep. The variable [HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HRSLEEP#codes_section) in IPUMS-NHIS asked participants, "On average, how many hours of sleep do you get in a 24-hour period?" 
 
 Participants were instructed to enter the number of hours slept using whole numbers and rounding up to 30 minutes if necessary.
+
+Answer options: 01 = 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused. We will filter the data by removing those individuals who refused to answer or did not provide a meaningful information.
+
+We will combine responses and create a variable that indicates a small amount of sleep (between 0 and 6 hours) vs. a normal amount of sleep (between 7 and 10 hours) vs. a large amount of sleep (over 10 hours).
 
 We will use multiple regression to model this outcome.
 
@@ -59,12 +63,6 @@ We will use multiple regression to model this outcome.
 As stated above in “Population,” we have received data from about 100,000 individuals among 45,000 households in the United States. 
 
 The primary hypotheses will use a variable indicating usual hours of sleep per day.
-
-Individuals self-report their usual hours of sleep ([HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “About how many hours of sleep do you get per day?”
-
-Answer options: 01 = 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused. We will filter the data by removing those individuals who refused to answer or did not provide a meaningful information.
-
-We will combine responses and create a variable that indicates a small amount of sleep (between 0 and 6 hours) vs. a normal amount of sleep (between 7 and 10 hours) vs. a large amount of sleep (over 10 hours).
 
 The test of our hypothesis will be
 
@@ -78,7 +76,7 @@ $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication 
 #### Explanatory variables
 
   - Computer Use Frequency
-  
+
   - Sleep Medication  
 
 [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)
