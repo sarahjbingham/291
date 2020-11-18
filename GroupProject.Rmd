@@ -32,7 +32,7 @@ Members:
 * Sarah Bingham  
 
 ## Project Title 
-Health Ramifications of Increased Screen Time
+Health Factors Related to Sleep
 
 ## Purpose and Hypotheses
 This project focuses on self-reported areas of mental and physical health among 72,831 randomly selected people living in the United States during the year of 2018. These spheres of health include whether or not one takes depression and/or sleep medication, hours of sleep per day, and amount of alcohol consumed per year. The goal of this project is to compare these variables to the frequency of computer use in order to more clearly visualize the effect screen time on health. This project is very relevant to life during the pandemic, where we depend on technology and computer use more than ever. With this increased screen use, however, we may see a decrease in mental and physical health based on limited in-person social interaction and necessary self-isolation from others. Our hope is that this project gives some insight into the health ramifications associated with computer usage within a large economically and racially diverse sample. 
@@ -43,7 +43,7 @@ The **primary hypothesis** is that screen time per week, depression medication, 
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, depression levels and medications, and frequency of computer use.
 
 ## Population  
-IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question", "did not know", ect.
+IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question," "did not know," etc.
 
 ## Primary hypothesis  
 As stated above in “Population,” we have received data from about 100,000 individuals among 45,000 households in the United States. 
@@ -52,9 +52,9 @@ The primary hypotheses will use a variable indicating usual hours of sleep per d
 
 The test of our hypothesis will be
 
-$ H_0: \beta_1 = \beta_2 = \beta_3 = 0$
+$H_0: \beta_1 = \beta_2 = \beta_3 = 0$
 
-$ H_1$: At least one $\beta_1 \neq \beta_2 \neq \beta_3 \neq 0$
+$H_1$: At least one $\beta_1 \neq \beta_2 \neq \beta_3 \neq 0$
 
 from the regression model:  
 $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication + \beta_3DepressionMedication $$
@@ -77,7 +77,7 @@ We will use multiple regression to model this outcome.
 
 [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). 
 
-This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU, 7 = Unknown-refused, 8 = Unknown-not ascertained, 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never, 2 = Some days, 3 = Most days, 4 = Every day).
+This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU; 7 = Unknown-refused; 8 = Unknown-not ascertained; 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never; 2 = Some days; 3 = Most days; 4 = Every day).
 
   - Sleep Medication  
 
