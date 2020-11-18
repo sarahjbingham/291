@@ -37,7 +37,7 @@ Health Ramifications of Increased Screen Time
 ## Purpose and Hypotheses
 This project focuses on self-reported areas of mental and physical health among 72,831 randomly selected people living in the United States during the year of 2018. These spheres of health include levels of anxiety and depression, whether or not one takes depression medication, hours of sleep per day, weight, and amount of alcohol consumed per year. The goal of this project is to compare these variables to the frequency of computer use in order to more clearly visualize the effect of health on screen time. This project is very relevant to life today where we are depending on technology and computer use more than ever. With this increased screen use however, we may see a decrease in mental and physical health based on limited social interaction and necessary self-isolation from others. Our hope is that this project helps us gain insight into this health and computer usage association within a large, economically and racially diverse sample. 
 
-The **primary hypothesis** is that those with more screen time per week (most days or every day) will have less self-reported usual hours of sleep per day. 
+The **primary hypothesis** is that those with more screen time per week, depression medication, and sleep medication will have less self-reported usual hours of sleep per day. 
 
 ## Data  
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. Our variables include age, race, earnings, weight, alcohol use, sleep habits, depression levels and medications, and frequency of computer use.
@@ -58,7 +58,7 @@ We will use linear regression to model this outcome.
 ### Primary hypothesis  
 As stated above in “Population”, we have received data from about 100,000 individuals among 45,000 households in the United States. 
 
-The primary hypotheses will use a variable indicating usual hours of sleep her day. We will create this variable from two different sources.
+The primary hypotheses will use a variable indicating usual hours of sleep her day.
 
 Individuals self-report their usual hours of sleep ([HRSLEEP](https://nhis.ipums.org/nhis-action/variables/HEALTH#codes_section) in NHIS) in response to a question: “About how many hours of sleep do you get per day?”
 
@@ -68,12 +68,12 @@ We will combine responses and create a variable that indicates a small amount of
 
 The test of our hypothesis will be
 
-$ H_0: \beta_1 = 0$
+$ H_0: \beta_1 = \beta_2 = \beta_3 = 0$
 
-$ H_1: \beta_1 ≠ 0$
+$ H_1$: At least one $\beta_1 \neq \beta_2 \neq \beta_3 \neq 0$
 
 from the regression model:  
-$$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency $$
+$$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication + \beta_3DepressionMedication $$
 
 
 #### Potential Confounders  
