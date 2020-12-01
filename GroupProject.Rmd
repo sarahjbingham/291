@@ -67,10 +67,6 @@ Participants were instructed to enter the number of hours slept using whole numb
 
 Answer options: 01 = 1 hour; 02 = 2 hours, ...; 24 = 24 hours; 25 = less than 1 hour, 97 = unknown/refused; 98 = unknown/ascertained; 99 = unknown/refused. We will filter the data by removing those individuals who refused to answer or did not provide a meaningful information.
 
-We will combine responses and create a variable that indicates a small amount of sleep (between 0 and 6 hours) vs. a normal amount of sleep (between 7 and 10 hours) vs. a large amount of sleep (over 10 hours).
-
-We will use multiple regression to model this outcome.
-
 ## Explanatory variables
 
   - Computer Use Frequency
