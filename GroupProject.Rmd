@@ -40,9 +40,10 @@ hellostats_data <- data %>%
          PCUSEFREQ %in% c("1", "2", "3", "4"),
          AGE != 0,
          RACENEW %in% c("10", "20", "30", "40", "50", "60"),
-         #EARNIMP1 %in% c(),
+         #EARNIMP1 %in% c(WHICH?),
          !(WEIGHT %in% c("996","997", "999"))) %>% 
-  mutate(PCUSEFREQ = recode(as.integer(PCUSEFREQ), `1` = "Infrequent", `2` = "Infrequent", `3` = "Frequent", `4` = "Frequent"))
+  mutate(PCUSEFREQ = recode(as.integer(PCUSEFREQ), 
+                            `1` = "Infrequent", `2` = "Infrequent", `3` = "Frequent", `4` = "Frequent"))
 
 #SLEEPMEDS with filter eliminates all our data. WEIGHT has no corresponding code for its large numbers (i.e., 996, 997, 999) but I removed them anyway. Earned income is categorical. Alcohol in days of week also eliminates a lot of variables...
 ```
