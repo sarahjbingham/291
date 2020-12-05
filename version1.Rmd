@@ -18,6 +18,13 @@ ddi <- read_ipums_ddi("nhis_00001.xml")
 data <- read_ipums_micro(ddi)
 ```
 
+```{r}
+library(dplyr)
+library(moderndive)
+library(tidyr)
+```
+
+
 Testing the model: 
 
 $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication + \beta_3DepressionMedication $$
