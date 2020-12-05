@@ -64,10 +64,6 @@ In the data set, there are many individuals who refused to answer the question, 
 
 The surveyed individuals answer the question whether they took medication for depression. They answer 0 if they haven't taken any medication for depression and answer 1 if they have taken medication for depression. The variable is a categorical variable so we will transform 1 into "yes" and 0 into "no". We will analyze this in relation to computer use and will observe whether the high frequency computer users have taken depression medication.
 
-```{r}
-hellostats_data$DEPRX <- factor(hellostats_data$DEPRX, levels = c(1, 0), labels = c("Yes", "No"))
-```
-
 **FITTING THE DATA**
 
 Testing the model: 
