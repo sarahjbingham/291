@@ -35,6 +35,15 @@ $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication 
 
 This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU; 7 = Unknown-refused; 8 = Unknown-not ascertained; 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never; 2 = Some days; 3 = Most days; 4 = Every day). We will combine Never/Almost never and Some Days (1 and 2), and Most Days and Every day (3 and 4). 1 and 2: we'll call infrequent use, 3 and 4 - frequent use.
  
+```{r}
+data$PCUSEFREQ <- factor(data$PCUSEFREQ, levels = c(1, 2, 3, 4), labels = c("Infrequent", "Infrequent", "Frequent", "Frequent"))
+```
+
+ 
+MedGPA$Sex <- factor(MedGPA$Sex, levels = c("F","M"),  labels = c("Female", "Male"))
+ 
+ 
+
   - Sleep Medication  
 
 [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)
@@ -53,6 +62,8 @@ The surveyed individuals answer the question whether they took medication for de
 data$DEPRX <- factor(data$DEPRX, levels = c(1, 0), labels = c("Yes", "No"))
 ```
 
+
+MedGPA$Sex <- factor(MedGPA$Sex, levels = c("F","M"),  labels = c("Female", "Male"))
 
 
 
