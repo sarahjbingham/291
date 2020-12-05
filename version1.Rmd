@@ -77,8 +77,8 @@ Testing the model:
 $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication + \beta_3DepressionMedication $$
 
 ```{r}
-sleep_model <- lm(HRSLEEP ~ DEPRX + PCUSEFREQ + SLEEPMEDS, data = hellostats_data)
-get_regression_table(sleep_model)
+sleep_model <- glm(HRSLEEP ~ DEPRX + PCUSEFREQ + SLEEPMEDS, data = hellostats_data, family = binomial)
+summary(sleep_model)
 ```
 
 
