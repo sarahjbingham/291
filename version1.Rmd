@@ -50,10 +50,6 @@ hellostats_data <- data %>%
 
 This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU; 7 = Unknown-refused; 8 = Unknown-not ascertained; 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never; 2 = Some days; 3 = Most days; 4 = Every day). We will combine Never/Almost never and Some Days (1 and 2), and Most Days and Every day (3 and 4). 1 and 2: we'll call infrequent use, 3 and 4 - frequent use.
  
-```{r}
-hellostats_data$PCUSEFREQ <- factor(hellostats_data$PCUSEFREQ, levels = c(1, 2, 3, 4), labels = c("Infrequent", "Infrequent", "Frequent", "Frequent"))
-```
-
 ***The factor above is not combining two points, it's just giving the same name to two of them. So, I cannot fit the data.*** 
   - Sleep Medication  
 
