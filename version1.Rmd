@@ -1,6 +1,6 @@
 ---
-title: "version1"
-author: "Lika Mikhelashvili"
+title: "Health Factors Related to Sleep"
+author: "Lika Mikhelashvili, Kelly Ford, Sarah Bingham"
 date: "12/5/2020"
     code_folding: show
 
