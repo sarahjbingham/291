@@ -39,16 +39,13 @@ hellostats_data <- data %>%
 ```
 
 
-
-
-
   - Computer Use Frequency
 
 [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). 
 
 This will require us to filter out all participants who did not report their computer use (rated as 0 = NIU; 7 = Unknown-refused; 8 = Unknown-not ascertained; 9 = Unknown-don't know) and include only those who answered this question using categorical data (rated as 1 = Never or almost never; 2 = Some days; 3 = Most days; 4 = Every day). We will combine Never/Almost never and Some Days (1 and 2), and Most Days and Every day (3 and 4). 1 and 2: we'll call infrequent use, 3 and 4 - frequent use.
  
-***The factor above is not combining two points, it's just giving the same name to two of them. So, I cannot fit the data.*** 
+ 
   - Sleep Medication  
 
 [SLEEPMEDS](https://nhis.ipums.org/nhis-action/variables/SLEEPMEDS#codes_section)
@@ -56,7 +53,7 @@ This will require us to filter out all participants who did not report their com
 The surveyed individuals answer the question *"In the past week, how many times did you take medication to help you fall asleep or stay asleep?"* They answer 0 if they didn't take medication to sleep in the past week; 01-06 for medication taken 1-6 times; 07 for medication taken 7 or more times. 
 
 In the data set, there are many individuals who refused to answer the question, so we will filter out the data leaving only those individuals who answered the question.
-***NEED TO GET RID OF 96***
+
 
   - Depression Medication
 
@@ -64,7 +61,6 @@ In the data set, there are many individuals who refused to answer the question, 
 
 The surveyed individuals answer the question whether they took medication for depression. They answer 0 if they haven't taken any medication for depression and answer 1 if they have taken medication for depression. The variable is a categorical variable so we will transform 1 into "yes" and 0 into "no". We will analyze this in relation to computer use and will observe whether the high frequency computer users have taken depression medication.
 
-**FITTING THE DATA**
 
 Testing the model: 
 
