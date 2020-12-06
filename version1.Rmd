@@ -72,10 +72,42 @@ summary(sleep_model)
 ```
 
 
+## Looking at Interaction Models
 
+# Hours sleep, depression, computer use
 
+```{r}
+interaction1 <- lm(HRSLEEP ~ DEPRX * PCUSEFREQ, data = hellostats_data)
+get_regression_table(interaction1)
+```
 
+```{r}
+ggplot(data = interaction1, aes(x = DEPRX, y = HRSLEEP, color = PCUSEFREQ)) + geom_point() +  geom_smooth(method=lm) 
+```
 
+# Hours sleep, sleep meds, computer use
+
+```{r}
+interaction2 <- lm(HRSLEEP ~  SLEEPMEDS * PCUSEFREQ, data = hellostats_data)
+get_regression_table(interaction2)
+```
+
+```{r}
+ggplot(data = interaction2, aes(x = SLEEPMEDS, y = HRSLEEP, color = PCUSEFREQ)) + geom_point() +  geom_smooth(method=lm)
+```
+
+## Checking for multicollinearity 
+
+```{r}
+library(car)
+vif(interaction1)
+```
+
+```{r}
+vif(interaction2)
+```
+
+Second interaction model is probably the ideal one to use here. 
 
 
 
