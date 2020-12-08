@@ -72,54 +72,6 @@ sleep_model <- glm(HRSLEEP ~ DEPRX + PCUSEFREQ + SLEEPMEDS, data = hellostats_da
 summary(sleep_model)
 ```
 
-
-## Looking at Interaction Models
-
-# Hours sleep, depression, computer use
-
-```{r}
-interaction1 <- lm(HRSLEEP ~ DEPRX * PCUSEFREQ, data = hellostats_data)
-get_regression_table(interaction1)
-```
-
-```{r}
-ggplot(data = interaction1, aes(x = DEPRX, y = HRSLEEP, color = PCUSEFREQ)) + geom_point() +  geom_smooth(method=lm) 
-```
-
-# Hours sleep, sleep meds, computer use
-
-```{r}
-interaction2 <- lm(HRSLEEP ~  SLEEPMEDS * PCUSEFREQ, data = hellostats_data)
-get_regression_table(interaction2)
-```
-
-```{r}
-ggplot(data = interaction2, aes(x = SLEEPMEDS, y = HRSLEEP, color = PCUSEFREQ)) + geom_point() +  geom_smooth(method=lm)
-```
-
-## Checking for multicollinearity 
-
-```{r}
-library(car)
-vif(interaction1)
-```
-
-```{r}
-vif(interaction2)
-```
-
-Second interaction model is probably the ideal one to use here. 
-
-
-```{r}
-model1 <- lm(HRSLEEP ~  SLEEPMEDS + DEPRX + PCUSEFREQ, data = hellostats_data)
-get_regression_table(model1)
-```
-
-```{r}
-vif(model1)
-```
-
 ```{r}
 full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK + RACENEW, data = hellostats_data)
 get_regression_table(full_model)
@@ -129,24 +81,19 @@ vif(full_model)
 ```
 
 ```{r}
-weight_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT, data = hellostats_data)
-get_regression_summaries(weight_model)
-get_regression_table(weight_model)
-vif(weight_model)
-```
-
-```{r}
-race_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + RACENEW, data = hellostats_data)
-get_regression_summaries(race_model)
-get_regression_table(race_model)
-vif(race_model)
-```
-**1 unit increase in race ??**
-
-
-```{r}
 alcohol_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + ALCDAYSWK, data = hellostats_data)
 get_regression_summaries(alcohol_model)
 get_regression_table(alcohol_model)
 vif(alcohol_model)
 ```
+
+## Nested Model
+
+```{r}
+anova(full_model, alcohol_model)
+```
+
+```{r}
+anova(full_model, sleep_model)
+```
+
