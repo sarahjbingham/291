@@ -121,7 +121,7 @@ vif(model1)
 ```
 
 ```{r}
-full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK + RACENEW + EARNIMP1, data = hellostats_data)
+full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK + RACENEW, data = hellostats_data)
 get_regression_table(full_model)
 get_regression_summaries(full_model)
 vif(full_model)
@@ -150,4 +150,3 @@ get_regression_summaries(alcohol_model)
 get_regression_table(alcohol_model)
 vif(alcohol_model)
 ```
-
