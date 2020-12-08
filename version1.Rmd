@@ -110,4 +110,12 @@ vif(interaction2)
 Second interaction model is probably the ideal one to use here. 
 
 
+```{r}
+model1 <- lm(HRSLEEP ~  SLEEPMEDS + DEPRX + PCUSEFREQ, data = hellostats_data)
+get_regression_table(model1)
+```
+
+```{r}
+vif(model1)
+```
 
