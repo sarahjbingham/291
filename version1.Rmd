@@ -68,11 +68,6 @@ Testing the model:
 $$ UsualSleep = \beta_0 + \beta_1 ComputerUseFrequency + \beta_2SleepMedication + \beta_3DepressionMedication $$
 
 ```{r}
-sleep_model <- glm(HRSLEEP ~ DEPRX + PCUSEFREQ + SLEEPMEDS, data = hellostats_data)
-summary(sleep_model)
-```
-
-```{r}
 full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK, data = hellostats_data)
 get_regression_table(full_model)
 get_regression_summaries(full_model)
@@ -97,3 +92,4 @@ anova(full_model, alcohol_model)
 anova(full_model, sleep_model)
 ```
 
+limited variables 
