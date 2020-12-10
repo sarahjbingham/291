@@ -54,7 +54,7 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 ```
 
 
-
+## Don't need this anymore but leaving this here just in case
 hellostats_data <- data %>%
   select(AGE, RACENEW, EARNIMP1, WEIGHT, ALCDAYSWK, HRSLEEP, SLEEPMEDS, DEPRX, PCUSEFREQ) %>%
   filter(ALCDAYSWK %in% c("10", "20", "30", "40", "50", "60", "70", "80"),
@@ -70,8 +70,7 @@ hellostats_data <- data %>%
          DEPRX = as.integer(DEPRX),
          SLEEPMEDS = as.integer(SLEEPMEDS))
 
-** need to change the Alcohol variable **
-
+## dont need it
   - Computer Use Frequency
 
 [PCUSEFREQ](https://nhis.ipums.org/nhis-action/variables/PCUSEFREQ#codes_section). 
