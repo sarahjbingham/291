@@ -21,8 +21,25 @@ library(tidyverse)
 ddi <- read_ipums_ddi("nhis_00001.xml")
 data <- read_ipums_micro(ddi)
 ```
-
 ```{r}
+hellostats_data <- data %>%
+  select(AGE, RACENEW, EARNIMP1, WEIGHT, ALCDAYSWK, HRSLEEP, SLEEPMEDS, DEPRX, PCUSEFREQ) %>%
+  filter(ALCDAYSWK %in% c("10", "20", "30", "40", "50", "60", "70", "80"),
+         HRSLEEP %in% 1:24,
+         SLEEPMEDS %in% c("0", "1", "2", "3", "4", "5", "6", "7"),
+         DEPRX %in% c("1", "2"),
+         PCUSEFREQ %in% c("1", "2", "3", "4"),
+         AGE != 0,
+         RACENEW %in% c("10", "20", "30", "40", "50", "60"),
+         !(WEIGHT %in% c("996","997", "999"))) %>% 
+  mutate(PCUSEFREQ = dplyr::recode(as.integer(PCUSEFREQ), `1` = "Infrequent", `2` = "Infrequent", `3` = "Frequent", `4` = "Frequent"), 
+         HRSLEEP = as.integer(HRSLEEP),
+         DEPRX = dplyr::recode(as.integer(DEPRX), `1` = "No", `2` = "Yes"),
+         SLEEPMEDS =as.integer(SLEEPMEDS),
+         ALCDAYSWK = dplyr::recode(as.integer(ALCDAYSWK), `10`=1, `20`=2, `30`=3, `40`=4, `50`=5, `60`=6, `70`=7, `80`=8))
+```
+
+
 hellostats_data <- data %>%
   select(AGE, RACENEW, EARNIMP1, WEIGHT, ALCDAYSWK, HRSLEEP, SLEEPMEDS, DEPRX, PCUSEFREQ) %>%
   filter(ALCDAYSWK %in% c("10", "20", "30", "40", "50", "60", "70", "80"),
