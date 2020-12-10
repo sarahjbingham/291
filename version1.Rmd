@@ -39,6 +39,21 @@ hellostats_data <- data %>%
          ALCDAYSWK = dplyr::recode(as.integer(ALCDAYSWK), `10`=1, `20`=2, `30`=3, `40`=4, `50`=5, `60`=6, `70`=7, `80`=8))
 ```
 
+```{r}
+ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
+  geom_point() +
+  geom_smooth(method = lm, se=FALSE, formula=y~x) +
+  facet_grid(PCUSEFREQ ~ DEPRX)
+```
+
+```{r}
+ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
+  geom_point() +
+  geom_smooth(method = lm, se=FALSE, formula=y~x) +
+  facet_wrap(~DEPRX)
+```
+
+
 
 hellostats_data <- data %>%
   select(AGE, RACENEW, EARNIMP1, WEIGHT, ALCDAYSWK, HRSLEEP, SLEEPMEDS, DEPRX, PCUSEFREQ) %>%
@@ -54,7 +69,7 @@ hellostats_data <- data %>%
          HRSLEEP = as.integer(HRSLEEP),
          DEPRX = as.integer(DEPRX),
          SLEEPMEDS = as.integer(SLEEPMEDS))
-```
+
 ** need to change the Alcohol variable **
 
   - Computer Use Frequency
