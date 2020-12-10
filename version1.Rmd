@@ -88,9 +88,6 @@ vif(alcohol_model)
 anova(full_model, alcohol_model)
 ```
 
-```{r}
-anova(full_model, sleep_model)
-```
 
 limited variables 
 
