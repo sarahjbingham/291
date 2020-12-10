@@ -38,7 +38,7 @@ hellostats_data <- data %>%
          DEPRX = as.integer(DEPRX),
          SLEEPMEDS = as.integer(SLEEPMEDS))
 ```
-
+** need to change the Alcohol variable **
 
   - Computer Use Frequency
 
