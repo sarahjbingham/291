@@ -93,3 +93,20 @@ anova(full_model, sleep_model)
 ```
 
 limited variables 
+
+
+
+```{r}
+ggplot(data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
+  geom_point() +
+  geom_smooth(method = lm, se=FALSE, formula=y~x) +
+  facet_grid(PCUSEFREQ ~ DEPRX)
+```
+
+```{r}
+ggplot(data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
+  geom_point() +
+  geom_smooth(method = lm, se=FALSE, formula=y~x) +
+  facet_wrap(~DEPRX)
+```
+
