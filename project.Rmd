@@ -3,8 +3,8 @@ title: "project"
 author: "Lika Mikhelashvili"
 date: "12/12/2020"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
