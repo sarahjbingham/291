@@ -68,11 +68,27 @@ anova(full_model, alcohol_model)
 
 # Background and Significance
 
+This project focuses on self-reported areas of mental and physical health among 72,831 randomly selected people living in the United States during the year of 2018. These spheres of health include whether or not one takes depression and/or sleep medication, hours of sleep per day, and amount of alcohol consumed per year. The goal of this project is to compare these variables to the frequency of computer use in order to more clearly visualize the effect screen time on health. This project is very relevant to life during the pandemic, where we depend on technology and computer use more than ever. With this increased screen use, however, we may see a decrease in mental and physical health based on limited in-person social interaction and necessary self-isolation from others. Our hope is that this project gives some insight into the health ramifications associated with computer usage within a large economically and racially diverse sample. 
+
 # Methods
 
 ## Data
+
+Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. *Our specific data set was collected by obtaining a random sample of 72,831 people living in the U.S who self-reported hours of sleep per night, computer use frequency, alcohol consumption frequency, weight, and how many times within the last week they have taken sleep medication and depression medication.* Each observation represents a separate individual, though this does indicate some individuals cohabitate. Each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question," "did not know," etc. *The population that we intend to generalize to is any person living in the United States (roughly about 328 million people).*
  
 ## Variables
+
+The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency, alcohol consumption frequency, weight, number of times within the last week they have taken sleep medication, and number of times within the last week they have taken depression medication. Our full model includes all of these explanatory variables, while our reduced model excludes the weight variable. 
+
+Usual hours of sleep per day is simply the numerical values (1-24) indicating the number of hours that the individual sleeps on an average day. The values that we will filter out are 25 (less than one hour), 97 (refused to answer), 98 (not ascertained), and 99 (unsure). 
+
+Let us look now at our explanatory variables. 
+
+Numerical explanatory variables included sleep medication and weight. In terms of sleep medication, participants answered 0 if they didn't take medication to sleep in the past week, 01-06 for medication taken 1-6 times, and 07 for medication taken 7 or more times. We will filter out answers that are 96 (not applicable), 97 (refused to answer), 98 (not ascertained), and 99 (unsure). Weight tells us the participant's weight in pounds without including clothes or shoes. We will filter out 996 (refused to answer), 997 (not ascertained), and 998 (unknown).
+
+Depression medication was a binary response variable which indicated "2" for taken depression medication in the past week, or "1" for has not taken depression medication in the past week. The variable is a categorical variable so we will transform 2 into "yes" and 1 into "no". We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). 
+
+Computer use frequency gave participants the opportunity to give a categorical response of 1 (never or almost never), 2 (some days), 3 (most days), or 4 (every day). We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). After receiving this data, we mutated the answers in order to produce a binary response of "frequent" or "infrequent" computer use. We did this by combining responses of 1 and 2 and assigning these to the label "infrequent" and responses 3 and 4 become assigned to "frequent".   
 
 ## Analysis
 
