@@ -36,12 +36,25 @@ hellostats_data <- data %>%
          ALCDAYSWK = dplyr::recode(as.integer(ALCDAYSWK), `10`=1, `20`=2, `30`=3, `40`=4, `50`=5, `60`=6, `70`=7, `80`=8))
 ```
 
+# Abstract
 
+# Background and Significance
 
+# Methods
 
+## Data
+ 
+## Variables
 
-## Visualizations:
+## Analysis
 
+# Results
+
+# Discussion
+
+## Tables
+
+## Visualizaions
 
 ```{r}
 ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
@@ -49,7 +62,6 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
   geom_smooth(method = lm, se=FALSE, formula=y~x) +
   facet_grid(PCUSEFREQ ~ DEPRX)
 ```
-
 
 
 ```{r}
@@ -60,6 +72,9 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 ```
 
 
+## Limitations
+
+## Conclusion
 
 
 
