@@ -14,6 +14,7 @@ library(ipumsr)
 library(ggplot2)
 library(moderndive)
 library(tidyverse)
+library(car)
 ddi <- read_ipums_ddi("nhis_00001.xml")
 data <- read_ipums_micro(ddi)
 ```
@@ -36,6 +37,31 @@ hellostats_data <- data %>%
          ALCDAYSWK = dplyr::recode(as.integer(ALCDAYSWK), `10`=1, `20`=2, `30`=3, `40`=4, `50`=5, `60`=6, `70`=7, `80`=8))
 ```
 
+* Models  (I think we need to take out WEIGHT from the full model) *
+
+```{r}
+full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK, data = hellostats_data)
+get_regression_table(full_model)
+get_regression_summaries(full_model)
+vif(full_model)
+                    
+```
+
+```{r}
+alcohol_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + ALCDAYSWK, data = hellostats_data)
+get_regression_summaries(alcohol_model)
+get_regression_table(alcohol_model)
+vif(alcohol_model)
+```
+
+Nested Model:
+
+```{r}
+anova(full_model, alcohol_model)
+```
+
+
+
 # Abstract
 
 # Background and Significance
@@ -51,8 +77,6 @@ hellostats_data <- data %>%
 # Results
 
 # Discussion
-
-## Tables
 
 ## Visualizaions
 
@@ -74,8 +98,22 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 
 ## Limitations
 
+The limitation of our analysis is the fact that the values in all variables are self-reported, which makes the data less accurate. Also, we were limited to IPUMS variables and the survey texts they used. For example, in case of `PCUSEFREQ` variable, instead of having the variable be categorical, it would be much more accurate to have numeric variable with the number of hours of computer usage. Due to less flexibility in the available variables, we cannot infer any causal relationship between the hours slept and computer/health medication usage.
+
 ## Conclusion
 
+
+# Data Appendix
+
+## Checking Regression Assumptions
+
+### Linearity
+### Randomness
+### Independence
+
+## Coefficient summary
+
+## Collinearity testing (VIF) testing
 
 
 
