@@ -123,7 +123,7 @@ Finally, we believe the extremely small p-values mean that though all our coeffi
 
 # Discussion  
 
-The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight. Based on the full model, we can infer the relative effect of each variable on the sleep duration. One additional sleep medication taken in one week decreases the hours slept by 0.03 hour, which is not a high drop in sleep duration.
+The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight. 
 
 
 ## Visualizaions  
