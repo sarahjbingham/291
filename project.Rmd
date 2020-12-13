@@ -59,7 +59,7 @@ vif(reduced_model)
 
 #### Nested F Test:  
 ```{r}
-anova(full_model, alcohol_model)
+anova(full_model, reduced_model)
 ```
 
 
@@ -99,7 +99,7 @@ Computer use frequency gave participants the opportunity to give a categorical r
 
 # Discussion  
 
-The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight.   
+The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight.
 
 ## Visualizaions  
 
