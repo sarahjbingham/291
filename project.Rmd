@@ -117,6 +117,8 @@ Finally, we believe the extremely small p-values mean that though all our coeffi
 
 # Discussion  
 
+The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight.
+
 ## Visualizaions  
 
 ```{r}
