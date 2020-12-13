@@ -1,14 +1,14 @@
 ---
-title: "project"
-author: "Lika Mikhelashvili"
-date: "12/12/2020"
-output:
-  html_document: default
-  pdf_document: default
+title: "Health Factors Related to Sleep"
+author: "Lika Mikhelashvili, Kelly Ford, Sarah Bingham"
+date: "12/5/2020"
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      options(scipen=999))
 ```
 
 ```{r}
