@@ -63,39 +63,43 @@ anova(full_model, alcohol_model)
 ```
 
 
-# Abstract
+# Abstract  
 
-# Background and Significance
+Our project seeks to help understand the environmental conditions that effect the average individual's sleep per night during the Covid-19 pandemic. Our study examines how increased screen time, medication for depression, sleep medication, number of days alcohol is consumed within a week may effect the amount of time a person sleeps each night. Individuals stuck at home may be at a greater risk for depression, insomnia, substance use disorder, and of course are more likely to spend a greater amount of time on their computers. Our project uses data collected in 2018 from the National Health Interview Survey (IPUMS-NHIS) to see whether these variables have an effect on average sleep per night. Both a full and reduced model examined whether these variables had significant effects on the outcome variable of average sleep per night. Though each variable was, in fact, found be significant predictors of sleep length, we believe our large dataset means these findings will have very little practical implications for the general public.  
 
-This project focuses on self-reported areas of mental and physical health among 72,831 randomly selected people living in the United States during the year of 2018. These spheres of health include whether or not one takes depression and/or sleep medication, hours of sleep per day, and amount of alcohol consumed per year. The goal of this project is to compare these variables to amount of sleep in order to more clearly visualize the effect on health. This project is very relevant to life during the pandemic, where we depend on technology and computer use more than ever, factors that we believe effect the quality of sleep. With increased time spent at home, we may see an increase in computer use and a decrease in mental and physical health based on limited in-person social interaction and necessary self-isolation from others. Our hope is that this project gives some insight into the health ramifications associated with sleep within a large sample. 
+# Background and Significance  
 
-# Methods
+This project focuses on self-reported areas of mental and physical health among 72,831 randomly selected people living in the United States during the year of 2018. These spheres of health include whether or not one takes depression and/or sleep medication, hours of sleep per day, and amount of alcohol consumed per year. The goal of this project is to compare these variables to amount of sleep in order to more clearly visualize the effect on health. This project is very relevant to life during the pandemic, where we depend on technology and computer use more than ever, factors that we believe effect the quality of sleep. With increased time spent at home, we may see an increase in computer use and a decrease in mental and physical health based on limited in-person social interaction and necessary self-isolation from others. Our hope is that this project gives some insight into the health ramifications associated with sleep within a large sample.  
 
-## Data
+# Methods  
 
-Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. *Our specific data set was collected by obtaining a random sample of 72,831 people living in the U.S who self-reported hours of sleep per night, computer use frequency, weekly alcohol consumption frequency, weight, and how many times within the last week they have taken sleep medication and depression medication.* Each observation represents a separate individual, though the study does indicate some individuals cohabitate. However, each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question," "did not know," etc. *The population that we intend to generalize to is any person living in the United States (roughly about 328 million people).*
+## Data  
+
+Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. *Our specific data set was collected by obtaining a random sample of 72,831 people living in the U.S who self-reported hours of sleep per night, computer use frequency, weekly alcohol consumption frequency, weight, and how many times within the last week they have taken sleep medication and depression medication.* Each observation represents a separate individual, though the study does indicate some individuals cohabitate. However, each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question," "did not know," etc. *The population that we intend to generalize to is any person living in the United States (roughly about 328 million people).*  
  
-## Variables
+## Variables  
 
-The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency, weekly alcohol consumption frequency, weight, number of times within the last week they have taken sleep medication, and number of times within the last week they have taken depression medication. Our full model includes all of these explanatory variables, while our reduced model excludes the weight and computer use variable. 
+The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency, weekly alcohol consumption frequency, weight, number of times within the last week they have taken sleep medication, and number of times within the last week they have taken depression medication. Our full model includes all of these explanatory variables, while our reduced model excludes the weight and computer use variable.  
 
-Usual hours of sleep per day is simply the numerical values (1-24) indicating the number of hours that the individual sleeps on an average day. The values that we will filter out are 25 (less than one hour), 97 (refused to answer), 98 (not ascertained), and 99 (unsure). 
+Usual hours of sleep per day is simply the numerical values (1-24) indicating the number of hours that the individual sleeps on an average day. The values that we will filter out are 25 (less than one hour), 97 (refused to answer), 98 (not ascertained), and 99 (unsure).  
 
-Let us look now at our explanatory variables. 
+Let us look now at our explanatory variables.  
 
-Numerical explanatory variables included sleep medication and weight. In terms of sleep medication, participants answered 0 if they didn't take medication to sleep in the past week, 01-06 for medication taken 1-6 times, and 07 for medication taken 7 or more times. We will filter out answers that are 96 (not applicable), 97 (refused to answer), 98 (not ascertained), and 99 (unsure). Weight tells us the participant's weight in pounds without including clothes or shoes. We will filter out 996 (refused to answer), 997 (not ascertained), and 998 (unknown).
+Numerical explanatory variables included sleep medication and weight. In terms of sleep medication, participants answered 0 if they didn't take medication to sleep in the past week, 01-06 for medication taken 1-6 times, and 07 for medication taken 7 or more times. We will filter out answers that are 96 (not applicable), 97 (refused to answer), 98 (not ascertained), and 99 (unsure). Weight tells us the participant's weight in pounds without including clothes or shoes. We will filter out 996 (refused to answer), 997 (not ascertained), and 998 (unknown).  
 
-Depression medication was a binary response variable which indicated "2" for taken depression medication in the past week, or "1" for has not taken depression medication in the past week. The variable is a categorical variable so we will transform 2 into "yes" and 1 into "no". We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). 
+Depression medication was a binary response variable which indicated "2" for taken depression medication in the past week, or "1" for has not taken depression medication in the past week. The variable is a categorical variable so we will transform 2 into "yes" and 1 into "no". We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure).  
 
-Computer use frequency gave participants the opportunity to give a categorical response of 1 (never or almost never), 2 (some days), 3 (most days), or 4 (every day). We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). After receiving this data, we mutated the answers in order to produce a binary response of "frequent" or "infrequent" computer use. We did this by combining responses of 1 and 2 and assigning these to the label "infrequent" and responses 3 and 4 become assigned to "frequent".   
+Computer use frequency gave participants the opportunity to give a categorical response of 1 (never or almost never), 2 (some days), 3 (most days), or 4 (every day). We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). After receiving this data, we mutated the answers in order to produce a binary response of "frequent" or "infrequent" computer use. We did this by combining responses of 1 and 2 and assigning these to the label "infrequent" and responses 3 and 4 become assigned to "frequent."  
 
-## Analysis
+## Analysis  
 
-# Results
+# Results  
 
-# Discussion
 
-## Visualizaions
+
+# Discussion  
+
+## Visualizaions  
 
 ```{r}
 ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
@@ -112,11 +116,11 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 ```
 
 
-## Limitations
+## Limitations  
 
 The limitation of our analysis is the fact that the values in all variables are self-reported, which makes the data less accurate. Also, we were limited to IPUMS variables and the survey texts they used. For example, in case of `PCUSEFREQ` variable, instead of having the variable be categorical, it would be much more accurate to have numeric variable with the number of hours of computer usage. Due to less flexibility in the available variables, we cannot infer any causal relationship between the hours slept and computer/health medication usage.
 
-## Conclusion
+## Conclusion  
 
 
 
