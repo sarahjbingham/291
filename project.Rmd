@@ -59,7 +59,7 @@ vif(reduced_model)
 
 #### Nested F Test:  
 ```{r}
-anova(full_model, alcohol_model)
+anova(full_model, reduced_model)
 ```
 
 
