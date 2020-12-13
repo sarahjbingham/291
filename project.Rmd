@@ -4,11 +4,11 @@ author: "Lika Mikhelashvili, Kelly Ford, Sarah Bingham"
 date: "12/5/2020"
 output:
  html_document:
-   code_folding: show
+   code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
+knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       options(scipen=999))
 ```
