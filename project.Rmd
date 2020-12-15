@@ -155,8 +155,6 @@ The limitation of our analysis is the fact that the values in all variables are 
 
 ## Conclusion  
 
-We cannot claim a causative relationship between any of the explanatory variables and the outcome variable. *the data is so big that the slight changes in explanatory variables result in very slight changes in the outcome variables*
-Very low R^2
-
+Our findings were inconclusive and we cannot claim a causative relationship between any of the explanatory variables and sleep duration. The sample data is so big that slight changes in explanatory variables result in very slight changes in the outcome variables. What's more, the explanatory variables describe a very small proportion of variability in sleep duration (R^2 is small). However, our analysis shows that frequent computer usage is associated with a decreased sleep length and alcohol usage is correlated with increased sleep length. 
 
 
