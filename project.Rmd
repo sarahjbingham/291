@@ -127,7 +127,7 @@ The main goal of our analysis is to assess the relationship between sleep durati
 
 Our findings confirm our initial hypothesis that a more frequent computer usage is correlated to a decreased sleep duration. This is a relevant finding to the current pandemic since the drastic increase computer and smart-phone usage has supposedly led to an unstable sleep schedule for many. However, based on the data and the tests we conducted, we cannot claim a causal relationship between the two factors. 
 
-When accounting for other factors in the model, the relationship between hours slept (`HRSLEEP`) and the number of alcohol drinks per week (`ALCDAYSWK`) shows a slight positive trend, based on the figures 1.1 and 1.2. This relationship is evident in both infrequent and frequent computer use cases and regardless of the depression medication intake.
+When accounting for other factors in the model, the relationship between hours slept (`HRSLEEP`) and the number of days per week alcohol was consumed (`ALCDAYSWK`) shows a slight positive trend, based on the figures 1.1 and 1.2. This relationship is evident in both infrequent and frequent computer use cases and regardless of the depression medication intake.
 
 **Figure 1.1**
 
