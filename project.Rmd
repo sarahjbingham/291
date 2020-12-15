@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,
+knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE,
                       options(scipen=999))
 ```
@@ -123,13 +123,13 @@ Finally, we believe the extremely small p-values mean that though all our coeffi
 
 # Discussion  
 
-The main goal of our analysis is to assess the relationship between sleep duration and computer use in relation to sleep and depression medication, alcohol, and weight. Based on the full model, we can infer the relative effect of each variable on the sleep duration. One additional sleep medication (variable `SLEEPMEDS`) taken in one week decreases the hours slept by 0.03 hour. When the individual has taken a depression medication (`DEPRXYes`), the hours of sleep increases by 0.274 hours. An infrequent computer use increases the hours slept by 0.184, so an individual with high frequency of computer usage has a relatively shorter sleep duration. One unit increase in number of alcohol drinks consumed in a week (`ALCDAYSWK`) increases the hours slept, while one unit increase in individual's weight (`WEIGHT`) decreases the sleep duration. 
+The main goal of our analysis is to assess the relationship between sleep duration in relation to computer use, sleep medication, depression medication, alcohol, and weight. Based on the full model, we can infer the relative effect of each variable on the sleep duration. One additional sleep medication (variable `SLEEPMEDS`) taken in one week decreases the hours slept by 0.03 hour. When the individual has taken a depression medication (`DEPRXYes`), the hours of sleep increases by 0.274 hours. An infrequent computer use increases the hours slept by 0.184, so an individual with high frequency of computer usage has a relatively shorter sleep duration. One unit increase in number of alcohol drinks consumed in a week (`ALCDAYSWK`) increases the hours slept, while one unit increase in individual's weight (`WEIGHT`) decreases the sleep duration. 
 
 Our findings confirm our initial hypothesis that a more frequent computer usage is correlated to a decreased sleep duration. This is a relevant finding to the current pandemic since the drastic increase computer and smart-phone usage has supposedly led to an unstable sleep schedule for many. However, based on the data and the tests we conducted, we cannot claim a causal relationship between the two factors. 
 
 When accounting for other factors in the model, the relationship between hours slept (`HRSLEEP`) and the number of alcohol drinks per week (`ALCDAYSWK`) shows a slight positive trend, based on the figures 1.1 and 1.2. This relationship is evident in both infrequent and frequent computer use cases and regardless of the depression medication intake.
 
-** Figure 1.1 **
+**Figure 1.1**
 
 ```{r}
 ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
@@ -139,7 +139,7 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 ```
 
 
-** Figure 1.2**
+**Figure 1.2**
 
 ```{r}
 ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
@@ -155,6 +155,6 @@ The limitation of our analysis is the fact that the values in all variables are 
 
 ## Conclusion  
 
-Our findings were inconclusive and we cannot claim a causative relationship between any of the explanatory variables and sleep duration. The sample data is so big that slight changes in explanatory variables result in very slight changes in the outcome variables. What's more, the explanatory variables describe a very small proportion of variability in sleep duration (R^2 is small). However, our analysis shows that frequent computer usage is associated with a decreased sleep length and alcohol usage is correlated with increased sleep length. 
+Our findings were statistically significant, yet inconclusive, and we therefore cannot claim a causal relationship between any of the explanatory variables and sleep duration. The sample data is so big that slight changes in explanatory variables result in very slight changes in the outcome variables. What's more, the explanatory variables describe a very small proportion of variability in sleep duration (R^2 is small). However, our analysis shows that frequent computer usage is associated with a decreased sleep length and alcohol usage is correlated with increased sleep length. 
 
 
