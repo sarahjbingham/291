@@ -109,16 +109,10 @@ For both of these models, we calculated the p-values of each of the variables in
 
 ```{r}
 sleep_mean <- mean(hellostats_data$HRSLEEP)
-print(sleep_mean)
 ```
 
 ```{r}
 weight_mean <- mean(hellostats_data$WEIGHT)
-print(weight_mean)
-```
-
-```{r}
-sum(hellostats_data$RACENEW == 10)
 ```
 
 We began with a large national data set of 72,831 people. After filtering for non-applicable responses, omitting variables with more than two categories (of which we were not yet capable of analyzing statistically), and computer use frequency data, 11,672 individuals remained. Average amount of sleep per night is 7.08 hours with an average body weight of 177.49 pounds. The data consisted of overwhelmingly White participants, with 84.21% of individuals self-identifying as White, and 9.07% as Black or African-American, 3.49% as Asian, 1.15% Alaskan Native/American Indian, 2.08% as multiple race, and 0% as other. It should, therefore, be noted that this data set does not adequately represent individuals who do not identify as White and should not be generalized as representing all races adequately.  
