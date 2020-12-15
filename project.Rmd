@@ -87,7 +87,7 @@ Our study utilizes data made available online to the public from IPUMS-NHIS (Nat
  
 ### Variables  
 
-The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency, weekly alcohol consumption frequency, weight, number of times within the last week they have taken sleep medication, and number of times within the last week they have taken depression medication. Our full model includes all of these explanatory variables, while our reduced model excludes the weight and computer use variable.  
+The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency (`PCUSEFREQ`), weekly alcohol consumption frequency (`ALCDAYSWK`), weight (`WEIGHT`), number of times within the last week they have taken sleep medication (`SLEEPMEDS`), and whether the individual has taken depression medication in the past week (`DEPRX`). Our full model includes all of these explanatory variables, while our reduced model excludes the weight and computer use variable.  
 
 Usual hours of sleep per day is simply the numerical values (1-24) indicating the number of hours that the individual sleeps on an average day. The values that we will filter out are 25 (less than one hour), 97 (refused to answer), 98 (not ascertained), and 99 (unsure).  
 
