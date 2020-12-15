@@ -13,8 +13,9 @@ knitr::opts_chunk$set(echo = FALSE,
                       options(scipen=999))
 ```
 
-#### Packages  
 ```{r}
+#Packages
+
 library(ipumsr)
 library(moderndive)
 library(tidyverse)
@@ -23,8 +24,10 @@ ddi <- read_ipums_ddi("nhis_00001.xml")
 data <- read_ipums_micro(ddi)
 ```
 
-#### Data wrangling  
+
 ```{r}
+#Data wrangling  
+
 hellostats_data <- data %>%
   select(AGE, RACENEW, EARNIMP1, WEIGHT, ALCDAYSWK, HRSLEEP, SLEEPMEDS, DEPRX, PCUSEFREQ) %>%
   filter(ALCDAYSWK %in% c("10", "20", "30", "40", "50", "60", "70", "80"),
@@ -42,7 +45,9 @@ hellostats_data <- data %>%
          ALCDAYSWK = dplyr::recode(as.integer(ALCDAYSWK), `10`=1, `20`=2, `30`=3, `40`=4, `50`=5, `60`=6, `70`=7, `80`=8))
 ```
 
-#### Models  
+## Models  
+
+#### Full model (Sleep medication, depression medication, computer use, weight, alchol):  
 ```{r}
 full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK, data = hellostats_data)
 get_regression_table(full_model)
@@ -50,6 +55,7 @@ get_regression_summaries(full_model)
 vif(full_model)          
 ```
 
+#### Reduced model (Sleep medication, depression medication, alchol):  
 ```{r}
 reduced_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + ALCDAYSWK, data = hellostats_data)
 get_regression_summaries(reduced_model)
@@ -75,11 +81,11 @@ This project focuses on self-reported areas of mental and physical health among 
 
 # Methods  
 
-## Data  
+### Data  
 
 Our study utilizes data made available online to the public from IPUMS-NHIS (National Health Interview Survey). This data set contains information from 2018, the most recent year available. IPUMS-NHIS data is collected annually of approximately 100,000 individuals throughout 45,000 households in the United States. *Our specific data set was collected by obtaining a random sample of 72,831 people living in the U.S who self-reported hours of sleep per night, computer use frequency, weekly alcohol consumption frequency, weight, and how many times within the last week they have taken sleep medication and depression medication.* Each observation represents a separate individual, though the study does indicate some individuals cohabitate. However, each household has its own serial ID to distinguish which data come from which household. As cohabitation does not violate independence, we will consider all of the data points in our analysis. We will analyze the individuals who have reported meaningful data for the variables we are considering in the model, which means that we will filter out individuals who "refused to answer a question," "did not know," etc. *The population that we intend to generalize to is any person living in the United States (roughly about 328 million people).*  
  
-## Variables  
+### Variables  
 
 The self-reported variables in our analysis include the predictor variable of usual hours slept per day, as well as the following explanatory variables: computer use frequency, weekly alcohol consumption frequency, weight, number of times within the last week they have taken sleep medication, and number of times within the last week they have taken depression medication. Our full model includes all of these explanatory variables, while our reduced model excludes the weight and computer use variable.  
 
@@ -93,7 +99,7 @@ Depression medication was a binary response variable which indicated "2" for tak
 
 Computer use frequency gave participants the opportunity to give a categorical response of 1 (never or almost never), 2 (some days), 3 (most days), or 4 (every day). We will filter out answers that are 0 (not applicable), 7 (refused to answer), 8 (not ascertained), and 9 (unsure). After receiving this data, we mutated the answers in order to produce a binary response of "frequent" or "infrequent" computer use. We did this by combining responses of 1 and 2 and assigning these to the label "infrequent" and responses 3 and 4 become assigned to "frequent."  
 
-## Analysis
+### Analysis
 
 We created two multiple regression models to fit our data. Our first model included weight, sleep medication, and depression medication variables as a function of usual hours slept, so that we could analyze these relationships without accounting for weight or computer use frequency. Our second model included all of the explanatory variables (computer use frequency, alcohol consumption frequency, weight, sleep medication, and depression medication) as a function of usual hours slept. Because our first model is "nested" within our second model, we will refer to this as the "reduced model". Our second model in this case would be the "full model". 
 
@@ -138,7 +144,6 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
   facet_grid(PCUSEFREQ ~ DEPRX)
 ```
 
-
 **Figure 1.2**
 
 ```{r}
@@ -149,12 +154,11 @@ ggplot(hellostats_data, aes(x=ALCDAYSWK, y=HRSLEEP, color=SLEEPMEDS)) +
 ```
 
 
-## Limitations  
+### Limitations  
 
 The limitation of our analysis is the fact that the values in all variables are self-reported, which makes the data less accurate. Also, we were limited to IPUMS variables and the survey texts they used. For example, in case of `PCUSEFREQ` variable, instead of having the variable be categorical, it would be much more accurate to have numeric variable with the number of hours of computer usage. Due to less flexibility in the available variables, we cannot infer any causal relationship between the hours slept and computer/health medication usage. The lack of racial diversity in this sample also fails to represent the experiences of BIPOC and people of the global majority. More sampling should be conducted which adequately represents the experiences of racial groups besides those who identify as White.
 
-## Conclusion  
+### Conclusion  
 
 Our findings were statistically significant, yet inconclusive, and we therefore cannot claim a causal relationship between any of the explanatory variables and sleep duration. The sample data is so big that slight changes in explanatory variables result in very slight changes in the outcome variables. What's more, the explanatory variables describe a very small proportion of variability in sleep duration (R^2 is small). However, our analysis shows that frequent computer usage is associated with a decreased sleep length and alcohol usage is correlated with increased sleep length. 
-
 
