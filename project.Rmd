@@ -47,7 +47,7 @@ hellostats_data <- data %>%
 
 ## Models  
 
-#### Full model (Sleep medication, depression medication, computer use, weight, alchol):  
+#### Full model (Sleep medication, depression medication, computer use, weight, alcohol):  
 ```{r}
 full_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + PCUSEFREQ + WEIGHT + ALCDAYSWK, data = hellostats_data)
 get_regression_table(full_model)
@@ -55,7 +55,7 @@ get_regression_summaries(full_model)
 vif(full_model)          
 ```
 
-#### Reduced model (Sleep medication, depression medication, alchol):  
+#### Reduced model (Sleep medication, depression medication, alcohol):  
 ```{r}
 reduced_model <- lm(HRSLEEP ~ SLEEPMEDS + DEPRX + ALCDAYSWK, data = hellostats_data)
 get_regression_summaries(reduced_model)
